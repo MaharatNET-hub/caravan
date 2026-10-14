@@ -3,11 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>(function(d){var t='light';try{if(localStorage.getItem('ca-theme')==='dark')t='dark'}catch(e){}d.dataset.theme=t;var h=location.hash,p=(h.indexOf('#/')===0?h.slice(2):'').split('?')[0].split('/').filter(Boolean),r=p[0]||'home';if(r==='knowledge'&&p[1])r='article';d.dataset.route=r;if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))d.classList.add('motion')})(document.documentElement)</script>
 <title>جمعية الكرفانات | Caravan Association</title>
 <meta name="description" content="جمعية الكرفانات — جمعية نفع عام مقرها دبي، تمثل ملاك الكرفانات وتنظم ثقافة التخييم في دولة الإمارات العربية المتحدة.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="جمعية الكرفانات">
+<meta property="og:title" content="جمعية الكرفانات | Caravan Association">
+<meta property="og:description" content="جمعية نفع عام مقرها دبي، تجمع ملاك الكرفانات وهواة التخييم في دولة الإمارات. العضوية والفعاليات والرحلات ومركز المعرفة.">
+<meta property="og:image" content="https://maharatnet-hub.github.io/caravan/assets/img/og-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="شعار جمعية الكرفانات">
+<meta property="og:locale" content="ar_AE">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 </head>
@@ -17,19 +28,18 @@
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#/" aria-label="جمعية الكرفانات — الرئيسية">
-      <img src="assets/img/mark-white.png" alt="">
+      <img src="assets/img/mark-white.webp" width="240" height="175" alt="">
       <span><b>جمعية الكرفانات</b><small>CARAVAN ASSOCIATION</small></span>
     </a>
     <nav class="nav" id="nav" aria-label="القائمة الرئيسية">
       <a href="#/about" data-r="about governance statute news">من نحن</a>
       <a href="#/membership" data-r="membership join verify faq">العضوية</a>
       <a href="#/events" data-r="events">الفعاليات</a>
-      <a href="#/sites" data-r="sites">المواقف</a>
-      <a href="#/store" data-r="store">المتجر</a>
-      <a href="#/directory" data-r="directory">دليل الشركات</a>
-      <a href="#/community" data-r="community">المجتمع</a>
       <a href="#/knowledge" data-r="knowledge article services">المعرفة</a>
+      <a href="#/directory" data-r="directory">دليل الشركات</a>
+      <a href="#/store" data-r="store">المتجر</a>
       <a href="#/contact" data-r="contact">تواصل معنا</a>
+      <a class="navjoin" href="#/join">انضم إلى الجمعية</a>
     </nav>
     <div class="hicons">
       <a class="hicon" href="#/account" aria-label="حسابي"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></a>
@@ -79,11 +89,11 @@
         <h1><span>الطريق أجمل</span><span class="g">حين نسلكه معاً</span></h1>
         <p class="lead">جمعية نفع عام مقرها دبي، تجمع ملاك الكرفانات وهواة التخييم في دولة الإمارات، وتعمل مع الجهات الحكومية على توفير مواقف ومواقع تخييم آمنة ومنظّمة.</p>
         <div class="actions">
-          <a class="cta" href="#/join">قدّم طلب العضوية</a>
-          <a class="cta ghost" href="#/sites">تعرّف على مواقف الكرفانات</a>
+          <a class="cta cta-main" href="#/join">قدّم طلب العضوية</a>
+          <a class="cta ghost" href="#/events">الفعاليات والرحلات</a>
         </div>
       </div>
-      <div class="emblem"><img src="assets/img/logo-white.png" alt="شعار جمعية الكرفانات — Caravan Association"></div>
+      <div class="emblem"><img src="assets/img/logo-white.webp" width="560" height="567" fetchpriority="high" alt="شعار جمعية الكرفانات — Caravan Association"></div>
     </div>
   </div>
   <div class="facts">
@@ -107,7 +117,7 @@
       </div>
       <div class="doors stack">
         <a class="door" href="#/membership"><b>العضوية</b><span>منتسب أو مشترك، الرسوم والشروط وخطوات القبول.</span><em>أنواع العضوية</em></a>
-        <a class="door" href="#/sites"><b>مواقف الكرفانات</b><span>المواقع المفتوحة والتجريبية وضوابط استخدامها.</span><em>عرض المواقف</em></a>
+        <a class="door" href="#/events"><b>الفعاليات والرحلات</b><span>قوافل الكرفانات والملتقيات والمعارض، وطريقة التسجيل فيها.</span><em>عرض الفعاليات</em></a>
         <a class="door" href="#/knowledge"><b>مركز المعرفة</b><span>أدلة عملية للتخييم الآمن والسحب والتجهيز قبل الرحلة.</span><em>تصفّح الأدلة</em></a>
       </div>
     </div>
@@ -130,8 +140,10 @@
         <a class="btn2" href="#/events" style="text-decoration:none">كل الفعاليات</a>
       </div>
       <div class="evstrip" id="home-events"></div>
+      <p class="samplenote">بيانات تجريبية: مواعيد الفعاليات وأسعارها لعرض آلية التسجيل فقط.</p>
       <h2 class="h" style="font-size:20px;margin:48px 0 16px">شركاء ورعاة الموسم</h2>
       <div class="sponsors" id="home-sponsors"></div>
+      <p class="samplenote">بيانات تجريبية: أسماء الشركاء والرعاة للعرض فقط.</p>
     </div>
   </div>
   <div class="band">
@@ -146,7 +158,7 @@
 
 <!-- ================= ABOUT ================= -->
 <div class="page" id="p-about" data-title="من نحن">
-  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/><g class="tow" transform="translate(-420 0)"><use href="#rv-tow" x="0" y="196" width="165" height="55"/><animateTransform attributeName="transform" type="translate" from="-420 0" to="300 0" dur="3s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .7 .25 1"/></g></svg><div class="wrap">
+  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><span>من نحن</span></nav>
     <h1>من نحن</h1>
     <p>جمعية ذات نفع عام أُسست وفق المرسوم بقانون اتحادي رقم (50) لسنة 2023 في شأن تنظيم مؤسسات النفع العام، وتعمل تحت إشراف هيئة تنمية المجتمع في دبي.</p>
@@ -203,7 +215,7 @@
         <li><b>برامج توعوية</b> في المدارس والجمعيات حول مبادئ التخييم الآمن.</li>
         <li><b>أيام تجربة</b> بالشراكة مع شركات الكرفانات، والتنسيق مع هيئات السياحة لتعزيز السياحة الداخلية.</li>
         <li><b>المعارض</b> المتخصصة في السفر والترفيه والصيد والفروسية والمركبات.</li>
-        <li><b>التمثيل الخارجي</b> في المؤتمرات والمعارض والمخيمات خارج الدولة.</li>
+        <li><b>التمثيل الخارجي</b> في المؤتمرات والمعارض والمخيمات خارج الدولة، وفق ضوابط السلطة المختصة.</li>
         <li><b>الجوائز الدولية</b> في مجال الكرفانات وأنشطتها.</li>
       </ul>
     </div>
@@ -228,7 +240,7 @@
 
 <!-- ================= GOVERNANCE ================= -->
 <div class="page" id="p-governance" data-title="الحوكمة">
-  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/><g class="tow" transform="translate(-420 0)"><use href="#rv-tow" x="0" y="196" width="165" height="55"/><animateTransform attributeName="transform" type="translate" from="-420 0" to="300 0" dur="3s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .7 .25 1"/></g></svg><div class="wrap">
+  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><a href="#/about">من نحن</a><span aria-hidden="true">/</span><span>الحوكمة</span></nav>
     <h1>الحوكمة ومجلس الإدارة</h1>
     <p>تُدار الجمعية وفق نظام أساسي معتمد من هيئة تنمية المجتمع، وتخضع لإشرافها ورقابتها الإدارية والفنية والمالية.</p>
@@ -298,7 +310,7 @@
 
 <!-- ================= STATUTE ================= -->
 <div class="page" id="p-statute" data-title="النظام الأساسي">
-  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/><g class="tow" transform="translate(-420 0)"><use href="#rv-tow" x="0" y="196" width="165" height="55"/><animateTransform attributeName="transform" type="translate" from="-420 0" to="300 0" dur="3s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .7 .25 1"/></g></svg><div class="wrap">
+  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><a href="#/about">من نحن</a><span aria-hidden="true">/</span><span>النظام الأساسي</span></nav>
     <h1>النظام الأساسي</h1>
     <p>ملخص أبواب النظام الأساسي المعتمد والمصدّق من هيئة تنمية المجتمع، في 96 مادة و14 باباً.</p>
@@ -309,67 +321,9 @@
   </div>
 </div>
 
-<!-- ================= SITES ================= -->
-<div class="page" id="p-sites" data-title="مواقف الكرفانات">
-  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/><g class="tow" transform="translate(-420 0)"><use href="#rv-tow" x="0" y="196" width="165" height="55"/><animateTransform attributeName="transform" type="translate" from="-420 0" to="300 0" dur="3s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .7 .25 1"/></g></svg><div class="wrap">
-    <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><span>مواقف الكرفانات</span></nav>
-    <h1>مواقف الكرفانات</h1>
-    <p>مواقع مجهّزة افتُتحت أو جُرّبت بالتعاون مع الجهات المعنية، يتوقف فيها أصحاب الكرفانات بأمان على الساحل وفي البر.</p>
-  </div><i class="road2"></i></div>
-  <div class="wrap pbody">
-    <div class="mapwrap">
-      <figure class="map" style="margin:0">
-        <svg viewBox="0 0 520 420" role="img" aria-label="مخطط توضيحي لمواقع المواقف">
-          <rect width="520" height="420" fill="#231F20"/>
-          <path d="M0 0 H520 V420 H0Z" fill="#1B3358" opacity=".55"/>
-          <!-- schematic land: UAE + Oman north -->
-          <path d="M40 300 L120 286 L190 268 L250 240 L300 210 L345 170 L375 120 L398 82 L418 60 L430 92 L444 140 L470 175 L505 210 L520 236 L520 420 L40 420Z" fill="#3B3433"/>
-          <path d="M40 300 L120 286 L190 268 L250 240 L300 210 L345 170 L375 120 L398 82 L418 60" fill="none" stroke="#CDB389" stroke-width="1.5" opacity=".6"/>
-          <path d="M418 60 L436 50 L446 70 L444 140" fill="#3B3433"/>
-          <path d="M430 100 C428 160 440 200 470 240 C430 300 380 340 360 420" fill="none" stroke="#C99A35" stroke-width="1" stroke-dasharray="4 5" opacity=".5"/>
-          <text x="250" y="330" fill="#9E9384" font-size="15" font-family="IBM Plex Sans Arabic, Tahoma" text-anchor="middle">الإمارات العربية المتحدة</text>
-          <text x="490" y="300" fill="#9E9384" font-size="13" font-family="IBM Plex Sans Arabic, Tahoma" text-anchor="middle">عُمان</text>
-          <text x="200" y="150" fill="#6E86A8" font-size="13" font-family="IBM Plex Sans Arabic, Tahoma" text-anchor="middle">الخليج العربي</text>
-          <g id="pins"></g>
-        </svg>
-        <figcaption>مخطط توضيحي غير مطابق للمقياس. اختر موقعاً لإبرازه.</figcaption>
-      </figure>
-      <div>
-        <div class="chips" role="group" aria-label="تصفية المواقف">
-          <button class="chip" data-f="all" aria-pressed="true">الكل</button>
-          <button class="chip" data-f="open" aria-pressed="false">مفتوحة</button>
-          <button class="chip" data-f="ad" aria-pressed="false">أبوظبي</button>
-          <button class="chip" data-f="out" aria-pressed="false">خارج الدولة</button>
-        </div>
-        <div class="slist" id="slist"></div>
-      </div>
-    </div>
-  </div>
-  <div class="band sand">
-    <div class="wrap">
-      <i class="rule"></i><h2 class="h">ضوابط استخدام المواقف</h2>
-      <p class="lede">التزامك بهذه الضوابط يحافظ على المواقع مفتوحة لك ولغيرك.</p>
-      <ul class="plain rules">
-        <li>التقيّد بالمساحة المخصصة لكل كرفان وعدم إغلاق الممرات.</li>
-        <li>تفريغ المياه الرمادية ومياه الصرف في النقاط المعتمدة فقط.</li>
-        <li>جمع النفايات وتركها في الحاويات المخصصة.</li>
-        <li>عدم إشعال النار إلا في الأماكن المسموح بها.</li>
-        <li>مراعاة الهدوء ليلاً واحترام خصوصية الجيران.</li>
-        <li>عدم تشغيل المولّد داخل الكرفان أو قرب النوافذ.</li>
-        <li>الالتزام بتعليمات الجهة المشغّلة للموقع ومدة الإقامة المسموحة.</li>
-        <li>الإبلاغ عن أي ضرر أو ملاحظة عبر مركز البلاغات.</li>
-      </ul>
-      <div class="joinbar" style="margin-top:40px">
-        <div><h2>تعرف موقعاً يصلح للكرفانات؟</h2><p>تُصدر الجمعية توصيات فنية وهندسية لإنشاء المواقف. أرسل لنا اقتراحك.</p></div>
-        <a class="cta" href="#/contact?type=suggest">اقترح موقعاً</a>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- ================= MEMBERSHIP ================= -->
 <div class="page" id="p-membership" data-title="العضوية">
-  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/><g class="tow" transform="translate(-420 0)"><use href="#rv-tow" x="0" y="196" width="165" height="55"/><animateTransform attributeName="transform" type="translate" from="-420 0" to="300 0" dur="3s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .7 .25 1"/></g></svg><div class="wrap">
+  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><span>العضوية</span></nav>
     <h1>العضوية</h1>
     <p>العضوية متاحة للمواطنين والمقيمين وفق شروط النظام الأساسي. يُبتّ في الطلبات من مجلس الإدارة، ويُسدَّد الرسم خلال 30 يوماً من إخطار القبول.</p>
@@ -386,7 +340,7 @@
         </div>
         <p class="desc">عضو أصيل كامل الأهلية، يشارك في قرار الجمعية ومستقبلها.</p>
         <ul class="checks">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>حضور اجتماعات الجمعية العمومية والتصويت على قراراتها.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>حضور اجتماعات الجمعية العمومية والتصويت على قراراتها بعد مضي 3 أشهر على العضوية.</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>الترشح لعضوية مجلس الإدارة بعد 3 أشهر على الأقل من الانضمام.</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>تخفيضات على خدمات الجمعية التخصصية وفعالياتها ومؤتمراتها.</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>الاطلاع على تقارير الجمعية ونشراتها وإصداراتها.</li>
@@ -419,16 +373,16 @@
         <ul>
           <li>بلوغ سن الرشد وفق التشريعات السارية.</li>
           <li>حسن السيرة والسمعة، وعدم صدور حكم مقيد للحرية في جناية أو جنحة مخلة بالشرف أو الأمانة ما لم يُرد إليه اعتباره.</li>
-          <li>ملكية كرفان بمستند رسمي، ولمجلس الإدارة حق الاستثناء.</li>
+          <li>للعضو المنتسب: ملكية كرفان بمستند رسمي، ولمجلس الإدارة حق الاستثناء.</li>
         </ul>
       </div>
       <div>
         <h4>للمقيمين</h4>
         <ul>
-          <li>إقامة سارية في الدولة لمدة لا تقل عن 3 سنوات.</li>
+          <li>إقامة سارية حالياً في الدولة، ومستند رسمي يثبت الإقامة فيها مدة لا تقل عن 3 سنوات سابقة.</li>
           <li>ألا يحمل صفة دبلوماسية بأي شكل.</li>
-          <li>بلوغ سن الرشد وحسن السيرة والسمعة.</li>
-          <li>ملكية كرفان بمستند رسمي، ولمجلس الإدارة حق الاستثناء.</li>
+          <li>بلوغ سن الرشد وفق التشريعات السارية، وحسن السيرة والسمعة.</li>
+          <li>للعضو المنتسب: ملكية كرفان بمستند رسمي، ولمجلس الإدارة حق الاستثناء.</li>
         </ul>
       </div>
       <div>
@@ -458,8 +412,8 @@
       <details>
         <summary>حقوق العضو</summary>
         <ul>
-          <li>حضور اجتماعات الجمعيات العمومية متى استوفى الشروط المقررة.</li>
-          <li>المشاركة في التصويت على قرارات الجمعية العمومية.</li>
+          <li>حضور اجتماعات الجمعيات العمومية بعد مضي 3 أشهر على العضوية، متى استوفى الشروط المقررة.</li>
+          <li>المشاركة في التصويت على قرارات الجمعية العمومية بعد مضي 3 أشهر على العضوية.</li>
           <li>الترشح لمجلس الإدارة بعد 3 أشهر على الأقل من الانضمام.</li>
           <li>ممارسة الأنشطة المتاحة والانتفاع بممتلكات الجمعية وفق لوائحها.</li>
           <li>الاطلاع على بيانات وتقارير الجمعية وفق ما يقرره مجلس الإدارة.</li>
@@ -494,7 +448,7 @@
 
 <!-- ================= JOIN ================= -->
 <div class="page" id="p-join" data-title="طلب الانضمام أو التجديد">
-  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/><g class="tow" transform="translate(-420 0)"><use href="#rv-tow" x="0" y="196" width="165" height="55"/><animateTransform attributeName="transform" type="translate" from="-420 0" to="300 0" dur="3s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .7 .25 1"/></g></svg><div class="wrap">
+  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><a href="#/membership">العضوية</a><span aria-hidden="true">/</span><span>طلب الانضمام</span></nav>
     <h1>طلب الانضمام أو التجديد</h1>
     <p>النموذج ع/01 بنسخته الإلكترونية. يُحفظ ما تكتبه على جهازك تلقائياً حتى تكمل الطلب.</p>
@@ -504,8 +458,8 @@
     
     <div class="join-grid">
       <div class="formbox">
-        <header><b>نموذج طلب الانضمام أو التجديد</b><small>رمز النموذج: ع/01 — الإصدار 1.0</small></header>
-        <div class="progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <header><h2>نموذج طلب الانضمام أو التجديد</h2><small>رمز النموذج: ع/01 — الإصدار 1.0</small></header>
+        <div class="progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
         <div class="steplabel" id="steplabel" aria-live="polite"></div>
         <form id="form" novalidate>
           <!-- Step 1 -->
@@ -540,7 +494,7 @@
             <div class="field"><label for="name">الاسم الكامل كما في الهوية</label><input type="text" id="name" name="name" autocomplete="name" required><div class="msg">اكتب اسمك الكامل كما يظهر في الهوية.</div></div>
             <div class="row">
               <div class="field"><label for="eid">رقم الهوية الإماراتية</label><input type="text" id="eid" name="eid" inputmode="numeric" placeholder="784-XXXX-XXXXXXX-X" dir="ltr" required><div class="msg">رقم الهوية 15 رقماً ويبدأ بـ 784.</div></div>
-              <div class="field"><label for="dob">تاريخ الميلاد</label><input type="date" id="dob" name="dob" required><div class="msg">يجب أن يكون مقدم الطلب قد بلغ 21 عاماً (سن الرشد).</div></div>
+              <div class="field"><label for="dob">تاريخ الميلاد</label><input type="date" id="dob" name="dob" required><div class="msg">أدخل تاريخ ميلاد صحيحاً.</div><div class="hint">يُشترط بلوغ سن الرشد وفق التشريعات السارية.</div></div>
             </div>
             <div class="row">
               <div class="field"><label for="nat">الجنسية</label>
@@ -591,7 +545,16 @@
             </div>
           </div>
 
-          <!-- Step 4 -->
+          <!-- Step 4: documents (UI only in the demo) -->
+          <div class="fstep" data-title="المستندات المطلوبة">
+            <h3>المستندات المطلوبة</h3>
+            <p class="hint" style="font-size:14px;color:var(--muted);margin:0 0 14px">تتغير القائمة حسب نوع الطلب وفئة العضوية والجنسية، كما في النموذج ع/01. الصيغ المقبولة: PDF أو JPG أو PNG.</p>
+            <div class="docs" id="docs"></div>
+            <div class="field msgwrap" id="f-docs"><div class="msg">أرفق جميع المستندات الإلزامية بصيغة PDF أو JPG أو PNG للمتابعة.</div></div>
+            <div class="notice" style="margin-top:14px">نسخة توضيحية: لا تُرفع الملفات إلى أي خادم. في النسخة النهائية تُحفظ المستندات في مساحة خاصة لا يطّلع عليها إلا المختصون في الجمعية.</div>
+          </div>
+
+          <!-- Step 5 -->
           <div class="fstep" data-title="الشروط والإقرارات">
             <h3>الشروط والإقرارات</h3>
             <div class="notice">ضع علامة أمام الإقرار المنطبق عليك فقط. لا يُقبل الطلب قبل الإقرار بجميع البنود الإلزامية.</div>
@@ -611,13 +574,14 @@
           <!-- Step 5 -->
           <div class="fstep" data-title="الرسوم والمراجعة">
             <h3>الرسوم وطلب الإعفاء</h3>
-            <div class="field"><span class="legend">طلب الإعفاء من الرسم السنوي (اختياري)</span>
+            <div class="field" id="f-ex"><span class="legend">طلب الإعفاء من الرسم السنوي (اختياري)</span>
               <label class="check"><input type="checkbox" name="ex1">من كبار المواطنين</label>
               <label class="check"><input type="checkbox" name="ex2">من أصحاب الهمم</label>
+              <div class="docs" id="exdoc" hidden></div>
             </div>
             <div class="fees-calc" id="calc"></div>
             <p class="hint" id="calcnote" style="font-size:13.5px;color:var(--muted);margin-top:10px"></p>
-            <div class="notice" style="margin-top:14px">لا يُطلب الدفع الآن. تُسدَّد الرسوم بعد صدور قرار مجلس الإدارة بالقبول وخلال 30 يوماً من إخطارك. تقديم طلب الإعفاء لا يعني الموافقة عليه تلقائياً.</div>
+            <div class="notice" style="margin-top:14px">لا يُطلب الدفع الآن. تُسدَّد الرسوم بعد صدور قرار مجلس الإدارة بالقبول وخلال 30 يوماً من إخطارك. المبالغ المعروضة تقديرية وتُعتمد نهائياً بعد قرار القبول.</div>
           </div>
 
           <div class="fnav">
@@ -627,11 +591,19 @@
         </form>
         <div class="done" id="done" aria-live="polite">
           <div class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></div>
-          <h3>تم تجهيز طلبك</h3>
-          <p>راجع الملخص أدناه، ثم اطبعه أو احفظه بصيغة PDF وأرسله مع المستندات إلى أمين سر الجمعية. سيُعرض طلبك على مجلس الإدارة في أول اجتماع له.</p>
+          <h3>تم استلام طلبك</h3>
+          <p>رقم الطلب: <b class="ref" id="appno" dir="ltr"></b> <small style="color:var(--muted)">(رقم تجريبي)</small></p>
+          <p>يتابع أمين السر طلبك ويخطرك بكل مرحلة عبر وسيلة الإخطار التي اخترتها. يجتمع مجلس الإدارة مرة كل ربع سنة على الأقل، ويُعرض طلبك في أول اجتماع بعد اكتمال التدقيق.</p>
+          <ol class="apptl">
+            <li class="now"><b>التدقيق</b><span>مراجعة اكتمال البيانات والمستندات.</span></li>
+            <li><b>العرض على مجلس الإدارة</b><span>في أول اجتماع للمجلس.</span></li>
+            <li><b>القرار</b><span>القبول، أو الرفض مع بيان الأسباب.</span></li>
+            <li><b>السداد خلال 30 يوماً</b><span>من تاريخ إخطارك بالقبول، وإلا يُعد الطلب لاغياً.</span></li>
+            <li><b>التفعيل وإصدار البطاقة</b><span>قيد العضوية وإصدار رقمها وبطاقتها الرقمية.</span></li>
+          </ol>
           <div class="summary" id="summary"></div>
+          <p class="samplenote" style="text-align:start">نسخة توضيحية: لم يُرسل الطلب فعلياً. في النسخة النهائية يصل الطلب ومستنداته إلى لوحة تحكم الجمعية، ويتابع مقدّم الطلب حالته من حسابه.</p>
           <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px">
-            <button type="button" class="cta" id="print">اطبع الطلب</button>
             <button type="button" class="btn2" id="restart">طلب جديد</button>
           </div>
         </div>
@@ -641,14 +613,14 @@
         <h3>بطاقة عضويتك الرقمية</h3>
         <div class="mcard">
           <i class="stripe"></i>
-          <div class="hd"><img src="assets/img/mark-white.png" alt=""><small>CARAVAN ASSOCIATION</small></div>
+          <div class="hd"><img src="assets/img/mark-white.webp" width="240" height="175" alt="" loading="lazy"><small>CARAVAN ASSOCIATION</small></div>
           <div class="who"><b id="c-name">اسم العضو</b><span id="c-type">عضو منتسب</span></div>
           <div class="meta">
             <div>رقم العضوية<b>يصدر بعد القبول</b></div>
             <div>سارية حتى<b id="c-exp"></b></div>
           </div>
         </div>
-        <p class="card-cap">تظهر البطاقة في حسابك بعد التفعيل وسداد الرسوم، ويمكن التحقق منها برمز QR يعرض الاسم ونوع العضوية وحالتها وتاريخ انتهائها فقط.</p>
+        <p class="card-cap">تظهر البطاقة في حسابك بعد التفعيل وسداد الرسوم. يفتح رمز QR على البطاقة صفحة التحقق الرسمية، وتعرض الاسم ونوع العضوية وحالتها وتاريخ انتهائها فقط.</p>
       </aside>
     </div>
   </div>
@@ -657,10 +629,10 @@
 
 <!-- ================= VERIFY ================= -->
 <div class="page" id="p-verify" data-title="التحقق من العضوية">
-  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/><g class="tow" transform="translate(-420 0)"><use href="#rv-tow" x="0" y="196" width="165" height="55"/><animateTransform attributeName="transform" type="translate" from="-420 0" to="300 0" dur="3s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .7 .25 1"/></g></svg><div class="wrap">
+  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><a href="#/membership">العضوية</a><span aria-hidden="true">/</span><span>التحقق من العضوية</span></nav>
     <h1>التحقق من العضوية</h1>
-    <p>للجهات الشريكة والمنظمين: أدخل رقم العضوية أو امسح رمز QR على البطاقة لمعرفة حالتها.</p>
+    <p>للجهات الشريكة والمنظمين: أدخل رقم العضوية، أو امسح رمز QR على البطاقة ليفتح هذه الصفحة مباشرة.</p>
   </div><i class="road2"></i></div>
   <div class="wrap pbody">
     <div class="verify">
@@ -668,6 +640,7 @@
         <label for="vno" style="font-weight:600;display:block;margin-bottom:8px">رقم العضوية</label>
         <div class="vrow"><input type="text" id="vno" dir="ltr" placeholder="CA-0000" autocomplete="off"><button class="cta" type="submit">تحقّق</button></div>
         <p class="hint" style="font-size:13.5px;color:var(--muted);margin:10px 0 0">تعرض النتيجة الاسم ونوع العضوية وحالتها وتاريخ انتهائها فقط، دون أي بيانات شخصية أخرى.</p>
+        <p class="demohint">للتجربة في النسخة التوضيحية استخدم الرقم <b dir="ltr">CA-1001</b></p>
       </form>
       <div class="vres" id="vres" aria-live="polite"></div>
     </div>
@@ -676,7 +649,7 @@
 
 <!-- ================= EVENTS ================= -->
 <div class="page" id="p-events" data-title="الفعاليات والرحلات">
-  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/><g class="tow" transform="translate(-420 0)"><use href="#rv-tow" x="0" y="196" width="165" height="55"/><animateTransform attributeName="transform" type="translate" from="-420 0" to="300 0" dur="3s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .7 .25 1"/></g></svg><div class="wrap">
+  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><span>الفعاليات والرحلات</span></nav>
     <h1>الفعاليات والرحلات</h1>
     <p>قوافل ورحلات برية ومعارض وأنشطة مجتمعية على مدار الموسم. بعضها مفتوح للجميع، وبعضها للأعضاء فقط أو بسعر مخفّض لهم.</p>
@@ -693,14 +666,14 @@
     <div class="ev-grid">
       <div class="ev"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="12" rx="2"/><path d="M21 13h5l3 4v4h-8M7 21v2M17 21v2M6 13h4M13 13h4"/><path d="M2 27h28" stroke-dasharray="3 3"/></svg><h3>قوافل الكرفانات</h3><p>رحلات جماعية منظّمة بنقطة تجمع ومسار وموقع تخييم محدد، مع إقرار بشروط السلامة قبل التسجيل.</p></div>
       <div class="ev"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 26L16 6l12 20z"/><path d="M12 26l4-7 4 7"/><path d="M2 26h28"/></svg><h3>ملتقيات التخييم</h3><p>لقاءات في البر تجمع الأعضاء والعائلات لتبادل الخبرة والتعارف.</p></div>
-      <div class="ev"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="24" height="18" rx="2"/><path d="M4 13h24M10 4v6M22 4v6"/></svg><h3>المعارض</h3><p>مشاركة في معارض السفر والترفيه والصيد والفروسية والمركبات داخل الدولة وخارجها.</p></div>
+      <div class="ev"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="24" height="18" rx="2"/><path d="M4 13h24M10 4v6M22 4v6"/></svg><h3>المعارض</h3><p>مشاركة في معارض السفر والترفيه والصيد والفروسية والمركبات داخل الدولة، وخارجها وفق ضوابط السلطة المختصة.</p></div>
       <div class="ev"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 28c6-4 10-9 10-15A10 10 0 0 0 6 13c0 6 4 11 10 15z"/><path d="M16 22V12M12 16l4-4 4 4"/></svg><h3>حملات بيئية</h3><p>تنظيف مواقع التخييم والمحافظة على البيئة ضمن مبادرات تطوعية.</p></div>
       <div class="ev"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10l12-5 12 5-12 5z"/><path d="M9 12v7c0 2 3 4 7 4s7-2 7-4v-7"/></svg><h3>برامج توعوية</h3><p>جلسات في المدارس والجمعيات حول مبادئ التخييم الآمن.</p></div>
       <div class="ev"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg><h3>أيام التجربة</h3><p>أيام بالشراكة مع شركات الكرفانات لمن يريد تجربة حياة الكرفان قبل الشراء.</p></div>
     </div>
     <div class="ev-cta">
-      <p>مواعيد الفعاليات القادمة وروابط التسجيل تُنشر أولاً على إنستغرام.</p>
-      <a class="cta" href="https://www.instagram.com/caravan_association/" target="_blank" rel="noopener">تابع الجمعية على إنستغرام</a>
+      <p>تابع الجمعية على إنستغرام للأخبار والصور، أما التسجيل في الفعاليات فيتم من هذه الصفحة.</p>
+      <a class="btn2" style="text-decoration:none" href="https://www.instagram.com/caravan_association/" target="_blank" rel="noopener">تابع الجمعية على إنستغرام</a>
     </div>
   </div>
 </section>
@@ -735,7 +708,7 @@
 
 <!-- ================= SERVICES ================= -->
 <div class="page" id="p-services" data-title="خدمات ملاك الكرفانات">
-  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/><g class="tow" transform="translate(-420 0)"><use href="#rv-tow" x="0" y="196" width="165" height="55"/><animateTransform attributeName="transform" type="translate" from="-420 0" to="300 0" dur="3s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .7 .25 1"/></g></svg><div class="wrap">
+  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><span>الخدمات</span></nav>
     <h1>خدمات ملاك الكرفانات</h1>
     <p>ما تقدمه الجمعية لأعضائها ولمجتمع الكرفانات في الإمارات.</p>
@@ -754,7 +727,7 @@
 
 <!-- ================= KNOWLEDGE ================= -->
 <div class="page" id="p-knowledge" data-title="مركز المعرفة">
-  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/><g class="tow" transform="translate(-420 0)"><use href="#rv-tow" x="0" y="196" width="165" height="55"/><animateTransform attributeName="transform" type="translate" from="-420 0" to="300 0" dur="3s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .7 .25 1"/></g></svg><div class="wrap">
+  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><span>مركز المعرفة</span></nav>
     <h1>مركز المعرفة</h1>
     <p>أدلة عملية كتبناها لملاك الكرفانات الجدد والمتمرّسين: من اختيار الكرفان إلى التخييم في البر بأمان.</p>
@@ -764,14 +737,14 @@
     <div class="doors" style="margin-top:40px">
       <a class="door" href="#/faq"><b>الأسئلة الشائعة</b><span>عن العضوية والرسوم والانتخابات.</span><em>اقرأ الأسئلة</em></a>
       <a class="door" href="#/statute"><b>النظام الأساسي</b><span>ملخص أبواب النظام المعتمد.</span><em>تصفّح النظام</em></a>
-      <a class="door" href="#/sites"><b>مواقف الكرفانات</b><span>المواقع وضوابط استخدامها.</span><em>عرض المواقف</em></a>
+      <a class="door" href="#/directory"><b>دليل الشركات</b><span>شركات البيع والتأجير والصيانة والمعدات.</span><em>تصفّح الدليل</em></a>
     </div>
   </div>
 </div>
 
 <!-- ================= ARTICLE ================= -->
 <div class="page" id="p-article" data-title="مركز المعرفة">
-  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/><g class="tow" transform="translate(-420 0)"><use href="#rv-tow" x="0" y="196" width="165" height="55"/><animateTransform attributeName="transform" type="translate" from="-420 0" to="300 0" dur="3s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .7 .25 1"/></g></svg><div class="wrap">
+  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><a href="#/knowledge">مركز المعرفة</a><span aria-hidden="true">/</span><span id="a-crumb"></span></nav>
     <h1 id="a-title"></h1>
     <p id="a-desc"></p>
@@ -790,7 +763,7 @@
 
 <!-- ================= NEWS ================= -->
 <div class="page" id="p-news" data-title="الأخبار">
-  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/><g class="tow" transform="translate(-420 0)"><use href="#rv-tow" x="0" y="196" width="165" height="55"/><animateTransform attributeName="transform" type="translate" from="-420 0" to="300 0" dur="3s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .7 .25 1"/></g></svg><div class="wrap">
+  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><span>الأخبار</span></nav>
     <h1>الأخبار والإعلام</h1>
     <p>أخبار الجمعية ومستجدات المواقف والفعاليات.</p>
@@ -808,7 +781,7 @@
 
 <!-- ================= FAQ ================= -->
 <div class="page" id="p-faq" data-title="الأسئلة الشائعة">
-  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/><g class="tow" transform="translate(-420 0)"><use href="#rv-tow" x="0" y="196" width="165" height="55"/><animateTransform attributeName="transform" type="translate" from="-420 0" to="300 0" dur="3s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .7 .25 1"/></g></svg><div class="wrap">
+  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><span>الأسئلة الشائعة</span></nav>
     <h1>الأسئلة الشائعة</h1>
     <p>إجابات مستندة إلى النظام الأساسي للجمعية.</p>
@@ -826,7 +799,7 @@
 
 <!-- ================= CONTACT ================= -->
 <div class="page" id="p-contact" data-title="تواصل معنا">
-  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/><g class="tow" transform="translate(-420 0)"><use href="#rv-tow" x="0" y="196" width="165" height="55"/><animateTransform attributeName="transform" type="translate" from="-420 0" to="300 0" dur="3s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .7 .25 1"/></g></svg><div class="wrap">
+  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><span>تواصل معنا</span></nav>
     <h1>تواصل معنا ومركز البلاغات</h1>
     <p>استفسار أو اقتراح أو بلاغ عن موقع تخييم: اختر نوع الرسالة ليصل طلبك إلى المسؤول المناسب.</p>
@@ -870,7 +843,7 @@
 
 <!-- ================= STORE ================= -->
 <div class="page" id="p-store" data-title="المتجر">
-  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/><g class="tow" transform="translate(-420 0)"><use href="#rv-tow" x="0" y="196" width="165" height="55"/><animateTransform attributeName="transform" type="translate" from="-420 0" to="300 0" dur="3s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .7 .25 1"/></g></svg><div class="wrap">
+  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><span>المتجر</span></nav>
     <h1>متجر الجمعية</h1>
     <p>ملابس الجمعية وأدوات السلامة والتخييم، بأسعار خاصة للأعضاء. كل الإيرادات تعود لأنشطة الجمعية.</p>
@@ -887,7 +860,7 @@
 
 <!-- ================= DIRECTORY ================= -->
 <div class="page" id="p-directory" data-title="دليل الشركات">
-  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/><g class="tow" transform="translate(-420 0)"><use href="#rv-tow" x="0" y="196" width="165" height="55"/><animateTransform attributeName="transform" type="translate" from="-420 0" to="300 0" dur="3s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .7 .25 1"/></g></svg><div class="wrap">
+  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><span>دليل الشركات</span></nav>
     <h1>دليل الشركات والموردين</h1>
     <p>شركات البيع والتأجير والصيانة والمعدات ومواقع التخييم، وكثير منها يقدّم خصومات لأعضاء الجمعية.</p>
@@ -917,44 +890,9 @@
   </div>
 </div>
 
-<!-- ================= COMMUNITY ================= -->
-<div class="page" id="p-community" data-title="مجتمع الأعضاء">
-  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/><g class="tow" transform="translate(-420 0)"><use href="#rv-tow" x="0" y="196" width="165" height="55"/><animateTransform attributeName="transform" type="translate" from="-420 0" to="300 0" dur="3s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .7 .25 1"/></g></svg><div class="wrap">
-    <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><span>مجتمع الأعضاء</span></nav>
-    <h1>مجتمع الأعضاء</h1>
-    <p>اسأل وشارك تجربتك وقيّم مواقع التخييم. النقاش هنا بين ملاك الكرفانات أنفسهم.</p>
-  </div><i class="road2"></i></div>
-  <div class="wrap pbody tight">
-    <div class="tabs" role="tablist" aria-label="أقسام المجتمع">
-      <button role="tab" aria-selected="true" aria-controls="tab-forum" id="tb-forum">المنتدى</button>
-      <button role="tab" aria-selected="false" aria-controls="tab-reviews" id="tb-reviews">تقييم المواقع</button>
-    </div>
-    <div id="tab-forum" role="tabpanel" aria-labelledby="tb-forum">
-      <div class="toolbar">
-        <div class="chips" role="group" aria-label="تصنيف المواضيع" id="tchips"></div>
-        <button class="cta" type="button" id="newtopic">موضوع جديد</button>
-      </div>
-      <form class="cform" id="tform" hidden novalidate style="margin-bottom:22px">
-        <div class="row">
-          <div class="field"><label for="tt">عنوان الموضوع</label><input type="text" id="tt"><div class="msg">اكتب عنواناً واضحاً.</div></div>
-          <div class="field"><label for="tc">التصنيف</label><select id="tc"><option>التجهيز</option><option>المواقع</option><option>الصيانة</option><option>الرحلات</option></select></div>
-        </div>
-        <div class="field"><label for="tb">التفاصيل</label><textarea id="tb"></textarea><div class="msg">اكتب تفاصيل سؤالك أو تجربتك.</div></div>
-        <div class="field"><label for="ta">اسمك المعروض</label><input type="text" id="ta" placeholder="مثل: أبو سالم"></div>
-        <div style="display:flex;gap:10px"><button class="cta" type="submit">انشر الموضوع</button><button class="btn2" type="button" id="tcancel">إلغاء</button></div>
-      </form>
-      <div class="topics" id="topics"></div>
-    </div>
-    <div id="tab-reviews" role="tabpanel" aria-labelledby="tb-reviews" hidden>
-      <div class="rvgrid" id="rvgrid"></div>
-    </div>
-    <p class="samplenote">المواضيع والتقييمات الحالية أمثلة تجريبية. ما تنشره يُحفظ على جهازك فقط حتى ربط المنتدى بالخادم.</p>
-  </div>
-</div>
-
 <!-- ================= ACCOUNT ================= -->
 <div class="page" id="p-account" data-title="حسابي">
-  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/><g class="tow" transform="translate(-420 0)"><use href="#rv-tow" x="0" y="196" width="165" height="55"/><animateTransform attributeName="transform" type="translate" from="-420 0" to="300 0" dur="3s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .7 .25 1"/></g></svg><div class="wrap">
+  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><span>حسابي</span></nav>
     <h1>حسابي</h1>
     <p>تذاكر الفعاليات وطلبات المتجر المسجلة من هذا الجهاز.</p>
@@ -989,28 +927,27 @@
   <div class="wrap">
     <div class="foot">
       <div>
-        <img src="assets/img/logo-white.png" alt="جمعية الكرفانات">
+        <img src="assets/img/logo-white.webp" width="560" height="567" alt="جمعية الكرفانات" loading="lazy">
         <a class="ig" href="https://www.instagram.com/caravan_association/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@caravan_association</a>
         <div data-contact style="margin-top:14px;color:#CFC6B6"></div>
       </div>
-      <div><h4>الجمعية</h4><ul>
+      <div><h2 class="fh">الجمعية</h2><ul>
         <li><a href="#/about">من نحن</a></li><li><a href="#/governance">الحوكمة</a></li><li><a href="#/statute">النظام الأساسي</a></li><li><a href="#/news">الأخبار</a></li><li><a href="#/services">الخدمات</a></li></ul></div>
-      <div><h4>العضوية</h4><ul>
+      <div><h2 class="fh">العضوية</h2><ul>
         <li><a href="#/membership">أنواع العضوية والرسوم</a></li><li><a href="#/join">طلب الانضمام أو التجديد</a></li><li><a href="#/verify">التحقق من العضوية</a></li><li><a href="#/faq">الأسئلة الشائعة</a></li><li><a href="#/account">حسابي</a></li></ul></div>
-      <div><h4>للملاك</h4><ul>
-        <li><a href="#/sites">مواقف الكرفانات</a></li><li><a href="#/events">الفعاليات والرحلات</a></li><li><a href="#/services">الخدمات</a></li><li><a href="#/knowledge">مركز المعرفة</a></li><li><a href="#/store">المتجر</a></li><li><a href="#/directory">دليل الشركات</a></li><li><a href="#/community">مجتمع الأعضاء</a></li><li><a href="#/contact">تواصل معنا</a></li></ul></div>
+      <div><h2 class="fh">للملاك</h2><ul>
+        <li><a href="#/events">الفعاليات والرحلات</a></li><li><a href="#/services">الخدمات</a></li><li><a href="#/knowledge">مركز المعرفة</a></li><li><a href="#/store">المتجر</a></li><li><a href="#/directory">دليل الشركات</a></li><li><a href="#/contact">تواصل معنا</a></li></ul></div>
     </div>
     <div class="legal">
       <span>© <span id="yr"></span> جمعية الكرفانات — جمعية نفع عام مرخصة من هيئة تنمية المجتمع، دبي</span>
-      <button class="theme-btn" id="theme" type="button">تبديل الوضع الليلي</button>
+      <div class="themesw" role="group" aria-label="مظهر الموقع"><button type="button" data-theme-set="light" aria-pressed="true">النسخة الفاتحة</button><button type="button" data-theme-set="dark" aria-pressed="false">النسخة الداكنة</button></div>
     </div>
   </div>
 </footer>
 
-<script src="assets/js/vendor/qrcode.js"></script>
-<script src="assets/js/data.js"></script>
-<script src="assets/js/scenes.js"></script>
-<script src="assets/js/app.js"></script>
-<script src="assets/js/motion.js"></script>
+<script src="assets/js/data.js" defer></script>
+<script src="assets/js/scenes.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+<script src="assets/js/motion.js" defer></script>
 </body>
 </html>

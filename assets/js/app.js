@@ -7,11 +7,9 @@ $('#yr').textContent=year;
 const cexp=$('#c-exp'); if(cexp) cexp.textContent='31 ديسمبر '+year;
 
 /* ---------- theme & nav ---------- */
-const t=store.get('ca-theme'); if(t) document.documentElement.dataset.theme=t;
-$('#theme').addEventListener('click',()=>{
-  const cur=document.documentElement.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
-  const nx=cur==='dark'?'light':'dark'; document.documentElement.dataset.theme=nx; store.set('ca-theme',nx);
-});
+const setTheme=v=>{document.documentElement.dataset.theme=v;store.set('ca-theme',v);$$('[data-theme-set]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.themeSet===v))};
+setTheme(store.get('ca-theme')==='dark'?'dark':'light');
+$$('[data-theme-set]').forEach(b=>b.addEventListener('click',()=>setTheme(b.dataset.themeSet)));
 const nav=$('#nav'), burger=$('#burger');
 burger.addEventListener('click',()=>{const o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
 nav.addEventListener('click',e=>{if(e.target.tagName==='A'){nav.classList.remove('open');burger.setAttribute('aria-expanded','false')}});
@@ -24,21 +22,6 @@ renderNews('all');
 $('#nchips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;$$('#nchips .chip').forEach(c=>c.setAttribute('aria-pressed',c===b));renderNews(b.dataset.f)});
 
 $('#chapters').innerHTML=CHAPTERS.map((c,i)=>`<details${i===0?' open':''}><summary><span class="no">الباب ${i+1}</span><b>${c.t}<small>${c.a}</small></b></summary><div class="body"><dl>${c.items.map(x=>`<dt>${x[0]}</dt><dd>${x[1]}</dd>`).join('')}</dl></div></details>`).join('');
-
-/* sites */
-let siteF='all', siteSel=null;
-function renderSites(){
-  const list=SITES.filter(s=>siteF==='all'||(siteF==='open'&&s.open)||(siteF==='ad'&&s.ad)||(siteF==='out'&&s.out));
-  $('#slist').innerHTML=list.map(s=>`<article class="sitem${s.id===siteSel?' on':''}" data-id="${s.id}" tabindex="0"><div class="ph">${s.img?`<img src="${s.img}" alt="${s.name}" loading="lazy">`:sceneSVG(s.scene)}<span class="badge${s.open?'':' soft'}">${s.status}</span></div><div class="txt"><div class="r1"><h3>${s.name}</h3></div><p>${s.desc}</p>${window.__siteRating?window.__siteRating(s.id):''}<dl><div><dt>الموقع:</dt><dd>${s.area}</dd></div><div><dt>الطبيعة:</dt><dd>${s.kind}</dd></div></dl></div></article>`).join('')||'<div class="empty">لا توجد مواقف ضمن هذا التصنيف.</div>';
-  $('#pins').innerHTML=list.map(s=>`<g class="pin${s.id===siteSel?' on':''}" data-id="${s.id}" tabindex="0" role="button" aria-label="${s.name}"><circle class="ring" cx="${s.x}" cy="${s.y}" r="11" fill="#F2D27E" opacity=".25"/><circle cx="${s.x}" cy="${s.y}" r="6" fill="${s.open?'#F2D27E':'#CFC6B6'}" stroke="#231F20" stroke-width="2"/></g>`).join('');
-}
-function pick(id){siteSel=id;renderSites();const el=$(`.sitem[data-id="${id}"]`);if(el&&innerWidth<860)el.scrollIntoView({block:'nearest',behavior:'smooth'})}
-$('#slist').addEventListener('click',e=>{const a=e.target.closest('.sitem');if(a)pick(a.dataset.id)});
-$('#slist').addEventListener('keydown',e=>{const a=e.target.closest('.sitem');if(a&&(e.key==='Enter'||e.key===' ')){e.preventDefault();pick(a.dataset.id)}});
-$('#pins').addEventListener('click',e=>{const g=e.target.closest('.pin');if(g)pick(g.dataset.id)});
-$('#pins').addEventListener('keydown',e=>{const g=e.target.closest('.pin');if(g&&e.key==='Enter')pick(g.dataset.id)});
-$$('#p-sites .chip').forEach(b=>b.addEventListener('click',()=>{siteF=b.dataset.f;$$('#p-sites .chip').forEach(c=>c.setAttribute('aria-pressed',c===b));renderSites()}));
-renderSites();
 
 /* knowledge */
 const kcard=a=>`<a class="kcard" href="#/knowledge/${a.id}"><div class="cover"><svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${ART[a.cover]}</svg></div><div class="in"><span class="cat">${a.cat}</span><b>${a.t}</b><span class="d">${a.d}</span><span class="rt">${a.rt}</span></div></a>`;
@@ -104,9 +87,8 @@ cform.addEventListener('submit',e=>{
   const d=new Date(), ref=`CA-${String(d.getFullYear()).slice(2)}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}-${Math.floor(1000+Math.random()*9000)}`;
   const label={inquiry:'استفسار',report:'بلاغ',suggest:'اقتراح موقع',partner:'شراكة أو رعاية'}[v.ktype.value];
   const text=`${label} — ${ref}\nالاسم: ${v.kname.value}\nالهاتف: ${v.kphone.value}${v.kmail.value?'\nالبريد: '+v.kmail.value:''}${v.kloc.value?'\nالموقع: '+v.kloc.value:''}\nالموضوع: ${v.ksub.value}\n\n${v.kmsg.value}`;
-  $('#cok').innerHTML=`<b>تم تجهيز رسالتك — الرقم المرجعي <span class="ref">${ref}</span></b><p style="margin:8px 0 12px;color:var(--muted);font-size:15px">انسخ الرسالة وأرسلها إلى الجمعية عبر رسائل إنستغرام، واحتفظ بالرقم المرجعي للمتابعة.</p><div style="display:flex;gap:10px;flex-wrap:wrap"><button type="button" class="cta" id="kcopy">انسخ الرسالة</button><a class="btn2" style="text-decoration:none" href="https://ig.me/m/caravan_association" target="_blank" rel="noopener">افتح رسائل إنستغرام</a></div>`;
+  $('#cok').innerHTML=`<b>تم استلام رسالتك — الرقم المرجعي <span class="ref">${ref}</span></b><p style="margin:8px 0 12px;color:var(--muted);font-size:15px">في النسخة النهائية تصل الرسالة مباشرة إلى بريد الجمعية وإلى لوحة التحكم، ويتابعها الفريق المختص ويرد عليك عبر الهاتف أو البريد. احتفظ بالرقم المرجعي للمتابعة. (في هذه النسخة التوضيحية لا تُرسل الرسالة فعلياً.)</p><p style="margin:0;font-size:14px;color:var(--muted)">التواصل عبر إنستغرام اختياري: <a href="https://ig.me/m/caravan_association" target="_blank" rel="noopener" dir="ltr">@caravan_association</a></p>`;
   $('#cok').classList.add('on');
-  $('#kcopy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(text);$('#kcopy').textContent='تم النسخ'}catch(err){$('#kcopy').textContent='تعذّر النسخ، انسخ يدوياً'}});
 });
 
 /* ---------- join form (from v1) ---------- */
@@ -115,21 +97,30 @@ const val=n=>{const el=form.elements[n]; if(!el) return ''; if(el instanceof Rad
 const isUAE=()=>val('nat')==='الإمارات العربية المتحدة';
 const isMember=()=>val('cat')==='عضو منتسب';
 const isNew=()=>['طلب انضمام جديد','إعادة التسجيل'].includes(val('req'));
+const isFounder=()=>val('req')==='تحديث بيانات عضو مؤسس';
 function sync(){
   $('#f-memno').hidden=isNew();
   const nat=val('nat'); $('#f-pass').hidden=!nat||isUAE(); $('#resident-conds').hidden=!nat||isUAE();
   $('#caravan').hidden=!isMember();
   $('#caravan-detail').style.display=val('ctype').startsWith('لا أملك')?'none':'';
-  $('#c-name').textContent=val('name')||'اسم العضو'; $('#c-type').textContent=val('cat'); calc();
+  $('#c-name').textContent=val('name')||'اسم العضو'; $('#c-type').textContent=val('cat'); calc(); if(typeof renderExDoc==='function') renderExDoc();
 }
 function calc(){
+  const founder=isFounder();
+  $('#f-ex').hidden=founder;
+  if(founder){
+    $('#calc').innerHTML=`<div><span>رسم الانضمام</span><span>0 درهم</span></div><div><span>الاشتراك السنوي</span><span>0 درهم</span></div><div class="tot"><span>الإجمالي</span><span>0 درهم</span></div>`;
+    $('#calcnote').textContent='الأعضاء المؤسسون معفون من الرسوم (المادة 49/3).';
+    return;
+  }
   const annual=isMember()?320:300, months=12-new Date().getMonth(), first=isNew();
   const sub=first?Math.round(annual*months/12):annual, join=first?300:0, ex=val('ex1')||val('ex2');
   let h=''; if(join) h+=`<div><span>رسم الانضمام (مرة واحدة)</span><span>${join} درهم</span></div>`;
-  h+=`<div><span>الاشتراك السنوي — ${val('cat')}${first?` (${months} ${months>2&&months<11?'أشهر':'شهراً'})`:''}</span><span>${ex?'<s>'+sub+'</s> بانتظار قرار الإعفاء':sub+' درهم'}</span></div>`;
-  h+=`<div class="tot"><span>الإجمالي المتوقع</span><span>${join+(ex?0:sub)} درهم</span></div>`;
+  h+=`<div><span>الاشتراك السنوي — ${val('cat')}${first?` (تقديري: ${months} ${months>2&&months<11?'أشهر':'شهراً'})`:''}</span><span>${sub} درهم</span></div>`;
+  h+=`<div class="tot"><span>${first?'الإجمالي التقديري':'الإجمالي'}</span><span>${join+sub} درهم</span></div>`;
+  if(ex) h+=`<div class="exnote">طلب الإعفاء يُعرض على مجلس الإدارة والجمعية العمومية، وتقديمه لا يعني الموافقة (المادة 49/4).</div>`;
   $('#calc').innerHTML=h;
-  $('#calcnote').textContent=first?`يُحتسب الاشتراك عن السنة الأولى بنسبة الأشهر المتبقية حتى 31 ديسمبر ${year}، ويُعد أي جزء من الشهر شهراً كاملاً.`:'تجديد عن سنة كاملة تبدأ في 1 يناير وتنتهي في 31 ديسمبر.';
+  $('#calcnote').textContent=first?'مبلغ السنة الأولى تقديري، ويُحتسب نهائياً من تاريخ الانضمام بعد قبول الطلب، وأي جزء من الشهر يُحسب شهراً كاملاً.':'تجديد عن سنة كاملة تبدأ في 1 يناير وتنتهي في 31 ديسمبر.';
 }
 function setBad(id,b){const el=form.elements[id];const f=el&&el.closest('.field');if(f)f.classList.toggle('bad',b);return !b}
 function validate(i){
@@ -138,8 +129,8 @@ function validate(i){
   if(i===1){
     ok=setBad('name',val('name').split(/\s+/).length<2)&&ok;
     ok=setBad('eid',!/^784\d{12}$/.test(val('eid').replace(/[\s-]/g,'')))&&ok;
-    let age=0; if(val('dob')){const d=new Date(val('dob')),n=new Date();age=n.getFullYear()-d.getFullYear()-((n.getMonth()<d.getMonth()||(n.getMonth()===d.getMonth()&&n.getDate()<d.getDate()))?1:0)}
-    ok=setBad('dob',!val('dob')||age<21)&&ok; ok=setBad('nat',!val('nat'))&&ok;
+    const dob=val('dob')?new Date(val('dob')):null;
+    ok=setBad('dob',!dob||isNaN(dob)||dob>new Date()||dob.getFullYear()<1900)&&ok; ok=setBad('nat',!val('nat'))&&ok;
     if(!isUAE()&&val('nat')) ok=setBad('pass',!val('pass'))&&ok;
   }
   if(i===2){
@@ -147,23 +138,57 @@ function validate(i){
     ok=setBad('email',!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val('email')))&&ok;
     ok=setBad('emirate',!val('emirate'))&&ok;
   }
-  if(i===3){let all=['d1','d2','d3','d4','d5'].every(val); if(!isUAE()) all=all&&['r1','r2','r3'].every(val); $('#f-decl').classList.toggle('bad',!all); ok=all}
+  if(i===3){const miss=docList().filter(d=>d.req&&!files[d.k]);$('#f-docs').classList.toggle('bad',!!miss.length);ok=!miss.length;if(!ok){const b=$(`#docs [data-doc="${miss[0].k}"] input`);if(b)b.focus()}}
+  if(i===4){let all=['d1','d2','d3','d4','d5'].every(val); if(!isUAE()) all=all&&['r1','r2','r3'].every(val); $('#f-decl').classList.toggle('bad',!all); ok=all}
   if(!ok){const b=steps[i].querySelector('.bad input,.bad select');if(b)b.focus()}
   return ok;
 }
-function show(i){cur=i;steps.forEach((s,k)=>s.classList.toggle('on',k===i));bars.forEach((b,k)=>b.classList.toggle('on',k<=i));$('#steplabel').textContent=`الخطوة ${i+1} من ${steps.length}: ${steps[i].dataset.title}`;$('#prev').hidden=i===0;$('#next').textContent=i===steps.length-1?'جهّز الطلب':'التالي'}
+/* المستندات المطلوبة حسب نوع الطلب والفئة والجنسية (النموذج ع/01، القسم ب) */
+const files={};
+function docList(){
+  const L=[];
+  if(isNew()){
+    L.push({k:'eid',t:'صورة بطاقة الهوية الإماراتية',req:true},{k:'photo',t:'صورة شخصية حديثة',req:true});
+    if(isMember()){ if(val('ctype').startsWith('لا أملك')) L.push({k:'own',t:'طلب الاستثناء من شرط ملكية الكرفان',req:false,note:'اخترت طلب الاستثناء في الخطوة 3، ويقرره مجلس الإدارة. يمكنك إرفاق ما يدعم طلبك.'}); else L.push({k:'own',t:'مستند رسمي يثبت ملكية الكرفان',req:true}); }
+    if(val('nat')&&!isUAE()) L.push({k:'pass',t:'صورة جواز السفر',req:true},{k:'res',t:'صورة الإقامة السارية',req:true},{k:'res3',t:'مستند رسمي يثبت الإقامة في الدولة مدة لا تقل عن 3 سنوات سابقة',req:true});
+  }else{
+    L.push({k:'card',t:'بطاقة العضوية السابقة',req:true},{k:'chg',t:'المستندات التي تغيّرت أو انتهت صلاحيتها فقط (إن وُجدت)',req:false});
+  }
+  return L;
+}
+const fmtSize=b=>b<1024*1024?Math.max(1,Math.round(b/1024))+' ك.ب':(b/1024/1024).toFixed(1)+' م.ب';
+const docRow=d=>`<div class="doc${files[d.k]?' ok':''}" data-doc="${d.k}"><div class="dt"><b>${d.t}</b><small>${d.req?'إلزامي':'اختياري'}${d.note?' — '+d.note:''}</small><span class="fn">${files[d.k]?`${esc(files[d.k].name)} — ${fmtSize(files[d.k].size)}`:'لم يُختر ملف بعد'}</span></div><label class="btn2 up">${files[d.k]?'تغيير الملف':'اختر ملفاً'}<input type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" aria-label="${d.t}"></label></div>`;
+function renderDocs(){
+  $('#docs').innerHTML=docList().map(docRow).join('');
+  renderExDoc();
+}
+function renderExDoc(){
+  const ex=!isFounder()&&(val('ex1')||val('ex2')); $('#exdoc').hidden=!ex;
+  if(ex) $('#exdoc').innerHTML=docRow({k:'exd',t:'مستند رسمي يثبت أنك من كبار المواطنين أو من أصحاب الهمم',req:false,note:'يُرفق مع طلب الإعفاء'});
+}
+function onFile(e){
+  const inp=e.target; if(inp.type!=='file') return; e.stopPropagation();
+  const row=inp.closest('[data-doc]'), f=inp.files&&inp.files[0]; if(!row||!f) return;
+  if(!/\.(pdf|jpe?g|png)$/i.test(f.name)){row.querySelector('.fn').textContent='صيغة غير مقبولة. اختر ملف PDF أو JPG أو PNG.';row.classList.add('err');inp.value='';return}
+  files[row.dataset.doc]={name:f.name,size:f.size}; if(row.closest('#exdoc')) renderExDoc(); else renderDocs(); $('#f-docs').classList.remove('bad');
+}
+const stopFileInput=e=>{if(e.target.type==='file')e.stopPropagation()};
+[$('#docs'),$('#exdoc')].forEach(el=>{el.addEventListener('change',onFile,true);el.addEventListener('input',stopFileInput,true)});
+function show(i){cur=i;if(i===3||i===5)renderDocs();steps.forEach((s,k)=>s.classList.toggle('on',k===i));bars.forEach((b,k)=>b.classList.toggle('on',k<=i));$('#steplabel').textContent=`الخطوة ${i+1} من ${steps.length}: ${steps[i].dataset.title}`;$('#prev').hidden=i===0;$('#next').textContent=i===steps.length-1?'أرسل الطلب':'التالي'}
 $('#next').addEventListener('click',()=>{if(!validate(cur))return;if(cur<steps.length-1){show(cur+1);$('#p-join .formbox').scrollIntoView({behavior:'smooth',block:'start'})}else finish()});
 $('#prev').addEventListener('click',()=>show(Math.max(0,cur-1)));
 function finish(){
   const rows=[['نوع الطلب',val('req')],['فئة العضوية',val('cat')],['الاسم',val('name')],['رقم الهوية',val('eid')],['الجنسية',val('nat')],['الهاتف',val('phone')],['البريد الإلكتروني',val('email')],['الإمارة',val('emirate')],['وسيلة الإخطار',val('notify')]];
   if(isMember()) rows.push(['الكرفان',val('ctype')+(val('plate')?' — لوحة '+val('plate'):'')]);
-  if(val('ex1')||val('ex2')) rows.push(['طلب إعفاء',[val('ex1')?'كبار المواطنين':'',val('ex2')?'أصحاب الهمم':''].filter(Boolean).join('، ')]);
+  if(!isFounder()&&(val('ex1')||val('ex2'))) rows.push(['طلب إعفاء',[val('ex1')?'كبار المواطنين':'',val('ex2')?'أصحاب الهمم':''].filter(Boolean).join('، ')]);
+  const up=Object.keys(files).filter(k=>docList().some(d=>d.k===k)||k==='exd').length;
+  rows.push(['المستندات المرفقة',up?up+' ملف':'—']);
   rows.push(['تاريخ التقديم',new Date().toLocaleDateString('ar-AE')]);
+  $('#appno').textContent=`${year}/${String(Math.floor(1000+Math.random()*9000))}`;
   $('#summary').innerHTML=rows.map(r=>`<div><span>${r[0]}</span><span>${esc(r[1]||'—')}</span></div>`).join('');
   form.style.display='none';$('.progress').style.display='none';$('#steplabel').style.display='none';$('#done').classList.add('on');store.del('ca-form');
 }
-$('#print').addEventListener('click',()=>window.print());
-$('#restart').addEventListener('click',()=>{form.reset();form.style.display='';$('.progress').style.display='';$('#steplabel').style.display='';$('#done').classList.remove('on');$$('.field.bad').forEach(f=>f.classList.remove('bad'));sync();show(0)});
+$('#restart').addEventListener('click',()=>{form.reset();Object.keys(files).forEach(k=>delete files[k]);form.style.display='';$('.progress').style.display='';$('#steplabel').style.display='';$('#done').classList.remove('on');$$('.field.bad').forEach(f=>f.classList.remove('bad'));sync();show(0)});
 function save(){const d={};Array.from(form.elements).forEach(el=>{if(!el.name)return;if(el.type==='radio'){if(el.checked)d[el.name]=el.value}else if(el.type==='checkbox')d[el.name]=el.checked;else d[el.name]=el.value});store.set('ca-form',JSON.stringify(d))}
 function load(){let d;try{d=JSON.parse(store.get('ca-form')||'null')}catch(e){d=null}if(!d)return;Array.from(form.elements).forEach(el=>{if(!el.name||!(el.name in d))return;if(el.type==='radio')el.checked=el.value===d[el.name];else if(el.type==='checkbox')el.checked=!!d[el.name];else el.value=d[el.name]})}
 form.addEventListener('input',()=>{sync();save()});form.addEventListener('change',()=>{sync();save()});
@@ -177,9 +202,14 @@ const MONTHS=['يناير','فبراير','مارس','أبريل','مايو','ي
 const pd=s=>{const [y,m,d]=s.split('-').map(Number);return {y,m,d}};
 const fmtRange=(a,b)=>{const x=pd(a),y=pd(b);if(a===b)return `${x.d} ${MONTHS[x.m-1]} ${x.y}`;if(x.m===y.m)return `${x.d}–${y.d} ${MONTHS[x.m-1]} ${x.y}`;return `${x.d} ${MONTHS[x.m-1]} – ${y.d} ${MONTHS[y.m-1]} ${y.y}`};
 const priceTxt=n=>n===0?'مجاناً':n+' درهم';
+/* مكتبة QR تُحمَّل فقط عند عرض أول رمز */
+let qrLoading=null;
+const loadQR=()=>qrLoading||(qrLoading=new Promise((res,rej)=>{const s=document.createElement('script');s.src='assets/js/vendor/qrcode.js';s.onload=res;s.onerror=rej;document.head.appendChild(s)}));
 function qrSVG(text){
-  try{const q=qrcode(0,'M');q.addData(text);q.make();return q.createSvgTag({cellSize:3,margin:2,scalable:true})}
-  catch(e){return `<span style="font-size:11px;color:#333;direction:ltr">${esc(text)}</span>`}
+  if(window.qrcode){try{const q=qrcode(0,'M');q.addData(text);q.make();return q.createSvgTag({cellSize:3,margin:2,scalable:true})}
+  catch(e){return `<span style="font-size:11px;color:#333;direction:ltr">${esc(text)}</span>`}}
+  loadQR().then(()=>$$('[data-qr]').forEach(el=>{el.innerHTML=qrSVG(el.dataset.qr);el.removeAttribute('data-qr')})).catch(()=>{});
+  return `<span data-qr="${esc(text)}"></span>`;
 }
 const genId=p=>p+'-'+Date.now().toString(36).toUpperCase().slice(-6);
 
@@ -199,8 +229,8 @@ function renderEvents(){
   const list=upcoming().filter(e=>evF==='الكل'||e.type===evF);
   $('#evlist').innerHTML=list.map(e=>{
     const tk=taken(e), left=Math.max(0,e.cap-tk), full=left===0, mine=tickets.some(t=>t.ev===e.id);
-    const pr=e.price.member===e.price.guest?`<div class="pr">${priceTxt(e.price.member)}${e.membersOnly?'<small>للأعضاء فقط</small>':''}</div>`:`<div class="pr">${priceTxt(e.price.member)}<small>للأعضاء — ${priceTxt(e.price.guest)} لغيرهم</small></div>`;
-    return `<article class="evc">${evDate(e)}<div><h3>${e.title}</h3><div class="meta"><span>${e.type}</span><span>${fmtRange(e.start,e.end)}</span><span>${e.place}</span></div><p>${e.desc}</p><div class="seats" title="المقاعد المحجوزة"><i style="width:${Math.min(100,tk/e.cap*100)}%"></i></div><div class="meta" style="margin-top:6px"><span>${full?'اكتمل العدد':`متبقٍ ${left} من ${e.cap} ${e.unit}`}</span></div></div><div class="evside">${pr}<button class="cta" data-reg="${e.id}" ${full||mine?'disabled':''}>${mine?'مسجّل':full?'اكتمل العدد':'سجّل الآن'}</button></div></article>`;
+    const pr=e.price.member===e.price.guest?`<div class="pr">${priceTxt(e.price.member)}${e.membersOnly?'<small>للأعضاء فقط</small>':(e.price.member?'<small>سعر موحّد للجميع</small>':'')}</div>`:`<div class="pr">${priceTxt(e.price.member)}<small>للأعضاء — ${priceTxt(e.price.guest)} لغيرهم</small></div>`;
+    return `<article class="evc">${evDate(e)}<div><h3>${e.title}</h3><div class="meta"><span>${e.type}</span><span>${fmtRange(e.start,e.end)}</span><span>${e.place}</span></div><p>${e.desc}</p><div class="seats" title="المقاعد المحجوزة"><i style="width:${Math.min(100,tk/e.cap*100)}%"></i></div><div class="meta" style="margin-top:6px"><span>${full?'اكتمل العدد':`المقاعد المتبقية: ${left} من ${e.cap}`}</span></div></div><div class="evside">${pr}<button class="cta" data-reg="${e.id}" ${full||mine?'disabled':''}>${mine?'مسجّل':full?'اكتمل العدد':'سجّل الآن'}</button></div></article>`;
   }).join('');
 }
 $('#evchips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(b){evF=b.dataset.f;renderEvents()}});
@@ -301,34 +331,6 @@ const spHTML=COMPANIES.filter(c=>c.tier).sort((a,b)=>'ذهبيفضيشريك'.in
 $('#sponsors').innerHTML=spHTML; const hsp=$('#home-sponsors'); hsp.classList.add('marq'); hsp.innerHTML=`<div class="track">${spHTML}${spHTML.replace(/class="sp"/g,'class="sp" aria-hidden="true"')}</div>`;
 $('#invest').innerHTML=INVEST.map(i=>`<div><small>${i.k}</small><h3>${i.t}</h3><p>${i.d}</p><a class="more" style="font-weight:600;font-size:14.5px" href="#/contact?type=partner">أبدِ اهتمامك</a></div>`).join('');
 
-/* ---------- community ---------- */
-let topics=[...loadJ('ca-topics',[]),...TOPICS], tf='الكل', myReplies=loadJ('ca-replies',{});
-function renderTopics(){
-  const cats=['الكل','التجهيز','المواقع','الصيانة','الرحلات'];
-  $('#tchips').innerHTML=cats.map(c=>`<button class="chip" data-f="${c}" aria-pressed="${c===tf}">${c}</button>`).join('');
-  $('#topics').innerHTML=topics.filter(t=>tf==='الكل'||t.cat===tf).map(t=>{const reps=[...t.replies,...(myReplies[t.id]||[])];return `<details><summary><div><b>${esc(t.title)}</b><small>${t.cat} — ${esc(t.by)} — ${t.ago}</small></div><div class="rc"><b>${reps.length}</b><br>ردود</div></summary><div class="post"><div class="msg1">${esc(t.body)}</div>${reps.map(r=>`<div class="reply"><b>${esc(r[0])}</b>${esc(r[1])}</div>`).join('')}<form class="replyform" data-t="${t.id}"><input type="text" placeholder="اكتب رداً" aria-label="اكتب رداً"><button class="addbtn" type="submit">رد</button></form></div></details>`}).join('');
-}
-$('#tchips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(b){tf=b.dataset.f;renderTopics()}});
-$('#topics').addEventListener('submit',e=>{e.preventDefault();const f=e.target.closest('.replyform');const v=f.querySelector('input').value.trim();if(v.length<2)return;(myReplies[f.dataset.t]=myReplies[f.dataset.t]||[]).push(['أنت',v]);saveJ('ca-replies',myReplies);const open=f.dataset.t;renderTopics();$(`.replyform[data-t="${open}"]`).closest('details').open=true});
-$('#newtopic').addEventListener('click',()=>{$('#tform').hidden=false;$('#tt').focus()});
-$('#tcancel').addEventListener('click',()=>{$('#tform').hidden=true});
-$('#tform').addEventListener('submit',e=>{
-  e.preventDefault();let ok=true;const bad=(id,b)=>{$(id).closest('.field').classList.toggle('bad',b);if(b)ok=false};
-  bad('#tt',$('#tt').value.trim().length<5);bad('#tb',$('#tb').value.trim().length<10);if(!ok)return;
-  const t={id:genId('T'),cat:$('#tc').value,title:$('#tt').value.trim(),by:$('#ta').value.trim()||'عضو',ago:'الآن',body:$('#tb').value.trim(),replies:[]};
-  const mine=loadJ('ca-topics',[]);mine.unshift(t);saveJ('ca-topics',mine);topics.unshift(t);$('#tform').reset();$('#tform').hidden=true;tf='الكل';renderTopics();
-});
-$$('.tabs button').forEach(b=>b.addEventListener('click',()=>{$$('.tabs button').forEach(x=>{const on=x===b;x.setAttribute('aria-selected',on);document.getElementById(x.getAttribute('aria-controls')).hidden=!on})}));
-let myRev=loadJ('ca-reviews',{});
-const allRev=id=>[...(REVIEWS[id]||[]),...(myRev[id]||[])];
-const avg=id=>{const r=allRev(id);return r.length?r.reduce((a,x)=>a+x[1],0)/r.length:0};
-const starsH=n=>{const r=Math.round(n);return `<span class="stars" aria-label="${n.toFixed(1)} من 5">${'★'.repeat(r)}<span class="off">${'★'.repeat(5-r)}</span></span>`};
-function renderReviews(){
-  $('#rvgrid').innerHTML=SITES.map(s=>`<article class="rvc" id="rv-${s.id}"><h3><span>${s.name}</span><span>${starsH(avg(s.id))} <small style="color:var(--muted);font-size:13px">${avg(s.id).toFixed(1)} (${allRev(s.id).length})</small></span></h3>${allRev(s.id).map(r=>`<div class="rv"><b>${esc(r[0])}</b> ${starsH(r[1])}<p>${esc(r[2])}</p></div>`).join('')}<form class="rvform" data-s="${s.id}"><div class="starpick" role="radiogroup" aria-label="تقييمك">${[1,2,3,4,5].map(n=>`<button type="button" data-v="${n}" aria-label="${n} نجوم">★</button>`).join('')}</div><input type="text" placeholder="اكتب تقييمك للموقع" aria-label="تقييمك"><button class="addbtn" type="submit">أضف تقييمي</button></form></article>`).join('');
-}
-$('#rvgrid').addEventListener('click',e=>{const b=e.target.closest('.starpick button');if(!b)return;const p=b.parentElement;p.dataset.v=b.dataset.v;p.querySelectorAll('button').forEach(x=>x.classList.toggle('on',+x.dataset.v<=+b.dataset.v))});
-$('#rvgrid').addEventListener('submit',e=>{e.preventDefault();const f=e.target;const v=+(f.querySelector('.starpick').dataset.v||0);const t=f.querySelector('input').value.trim();if(!v||t.length<3){f.querySelector('input').placeholder='اختر النجوم واكتب تعليقاً';return}(myRev[f.dataset.s]=myRev[f.dataset.s]||[]).push(['أنت',v,t]);saveJ('ca-reviews',myRev);renderReviews();renderSites()});
-
 /* ---------- account ---------- */
 function renderAccount(){
   tickets=loadJ('ca-tix',[]);
@@ -337,11 +339,11 @@ function renderAccount(){
   $('#myord').innerHTML=orders.length?orders.map(o=>`<div class="ticket" style="grid-template-columns:1fr"><div><b>طلب <span class="ref">${o.id}</span></b><small>${o.date} — قيد التأكيد</small>${o.items.map(i=>`<small>${i.name} × ${i.q} — ${i.sum} درهم</small>`).join('')}<small style="font-weight:700;color:var(--text)">الإجمالي: ${o.total} درهم</small></div></div>`).join(''):`<div class="empty">لا توجد طلبات بعد. <a href="#/store">زر المتجر</a></div>`;
 }
 
-renderEvents();renderHomeEvents();renderStore();renderDir();renderTopics();renderReviews();updateCounts();
+renderEvents();renderHomeEvents();renderStore();renderDir();updateCounts();
 
-window.__siteRating=id=>{const r=allRev(id);return r.length?`<p style="margin:8px 0 0">${starsH(avg(id))} <a href="#/community" style="font-size:13.5px;color:var(--muted)">${avg(id).toFixed(1)} من ${r.length} تقييمات</a></p>`:''};renderSites();
 /* ---------- router ---------- */
-const LEGACY={'#about':'about','#sites':'sites','#membership':'membership','#events':'events','#governance':'governance','#join':'join','#contact':'contact','#home':''};
+const LEGACY={'#about':'about','#sites':'','#membership':'membership','#events':'events','#governance':'governance','#join':'join','#contact':'contact','#home':''};
+let routed=false;
 function route(){
   let h=location.hash||'#/';
   if(LEGACY[h]!==undefined){location.replace('#/'+LEGACY[h]);return}
@@ -352,6 +354,8 @@ function route(){
   if(page==='knowledge'&&parts[1]){ok=renderArticle(parts[1]);page='article'}
   if(page==='verify'&&parts[1]){const n=decodeURIComponent(parts[1]);$('#vno').value=n;verify(n)}
   if(page==='contact'&&qs){const t=new URLSearchParams(qs).get('type');const r=cform.querySelector(`input[name=ktype][value="${t}"]`);if(r){r.checked=true;ktypeSync()}}
+  $$('dialog[open]').forEach(d=>d.close());
+  if(routed) delete document.documentElement.dataset.route; routed=true;
   let el=document.getElementById('p-'+page); if(!el||!ok) el=$('#p-404');
   const swap=()=>$$('.page').forEach(p=>p.classList.toggle('on',p===el));
   const prev=$('.page.on');

@@ -9,7 +9,21 @@ const $=s=>document.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelec
 document.documentElement.classList.add(RM?'rm':'motion');
 
 /* نجوم الهيرو */
-if(window.caStars) $$('[data-stars]').forEach(g=>{const [n,w,h,sd]=g.dataset.stars.split(',').map(Number);g.innerHTML=caStars(n,w,h,sd)});
+/* النجوم تومض في 4 مجموعات بدلاً من حركة مستقلة لكل نجمة: 30 على الجوال و60 على الشاشات الكبيرة في الهيرو */
+if(window.caStars) $$('[data-stars]').forEach(g=>{
+  let [n,w,h,sd]=g.dataset.stars.split(',').map(Number);
+  n=g.closest('.hero')?(innerWidth<760?30:60):Math.min(n,70);
+  const cs=caStars(n,w,h,sd).replace(/ class="tw"| style="animation-delay:[^"]*"/g,'').match(/<circle[^>]*\/>/g)||[], gs=['','','',''];
+  cs.forEach((c,i)=>gs[i%4]+=c);
+  g.innerHTML=gs.map((x,i)=>`<g class="tw" style="animation-delay:${(i*.8).toFixed(1)}s">${x}</g>`).join('');
+});
+
+/* إيقاف الحركة المستمرة حين يخرج الهيرو من الشاشة أو تُخفى الصفحة، وتشغيل لوحة «من نحن» فقط وهي ظاهرة */
+if('IntersectionObserver' in window){
+  const vo=new IntersectionObserver(es=>es.forEach(e=>{if(e.target.classList.contains('hero'))e.target.classList.toggle('off',!e.isIntersecting);else e.target.classList.toggle('inview',e.isIntersecting)}));
+  $$('.hero,.panorama').forEach(el=>vo.observe(el));
+}
+document.addEventListener('visibilitychange',()=>document.documentElement.classList.toggle('tabhid',document.hidden));
 
 /* ---------- ظهور العناصر عند التمرير ---------- */
 const SEL=['.sec-head','.rule + h2.h','p.lede','.doors .door','.fields li','.goals','.tier-main','.tier-side .tier','.fees','.cond > div','.steps li','.rd details','.ev','.evc','.evstrip a','.prod','.co','.sp:not(.marq .sp)','.invest > div','.kcard','.sitem','.news article','.timeline li','.vm > div','.svc article','.rvc','.topics details','.faq details','.chap details','.nums > div','.org .lvl','.tribute','.joinbar','.formbox','.card-wrap','.cside .box','.cform','.map','.panorama','.vcard','.ticket','.rules li','.about-text > *','.split > div','.empty'].join(',');
@@ -17,10 +31,13 @@ let io=null;
 if(!RM&&'IntersectionObserver' in window){
   io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px',threshold:.08});
 }
+let firstPrime=true;
 function prime(root){
   if(!io) return;
   $$(SEL,root).forEach(el=>{
-    if(el.dataset.rv) return; el.dataset.rv='1'; el.classList.add('reveal');
+    if(el.dataset.rv) return; el.dataset.rv='1';
+    if(firstPrime&&el.getBoundingClientRect().top<innerHeight) return; /* ما ظهر مع أول رسم يبقى كما هو */
+    el.classList.add('reveal');
     const sib=Array.from(el.parentElement.children).filter(c=>c.classList.contains('reveal'));
     el.style.setProperty('--d',(Math.min(sib.indexOf(el),8)*0.07)+'s');
     io.observe(el);
@@ -46,15 +63,29 @@ function drive(page){
   $$('svg',page).forEach(svg=>{
     const anims=$$('animateTransform[begin="indefinite"],animateMotion[begin="indefinite"]',svg);
     if(!anims.length) return;
+    fitDrive(svg);
     if(RM){try{anims.forEach(a=>a.beginElement());svg.setCurrentTime(30);svg.pauseAnimations()}catch(e){}return}
     anims.forEach(a=>{try{a.beginElement()}catch(e){}});
   });
 }
 
+/* يتوقف الموترهوم داخل الجزء الظاهر من المشهد مهما كان عرض الشاشة */
+function fitDrive(svg){
+  const m=svg.querySelector('#drv'), path=svg.querySelector('#hroad'); if(!m||!path) return;
+  const r=svg.getBoundingClientRect(), ctm=path.getScreenCTM(); if(!r.width||!r.height||!ctm) return;
+  const L=path.getTotalLength(), lead=document.querySelector('.hero .lead');
+  /* الجوال: نحو منتصف المشهد أسفل الأزرار. الشاشات الأكبر: قبل عمود النص حتى لا يغطي الأزرار */
+  const ok=r.width<760||!lead
+    ? (l=>{const s=Math.max(r.width/1440,r.height/520),vw=r.width/s;return path.getPointAtLength(l).x<720-vw/2+vw*.42})
+    : (l=>{const q=path.getPointAtLength(l).matrixTransform(ctm);return q.x+90*ctm.a<lead.getBoundingClientRect().left-16});
+  let lo=0,hi=L; for(let i=0;i<18;i++){const mid=(lo+hi)/2; if(ok(mid)) lo=mid; else hi=mid}
+  m.setAttribute('keyPoints','0;'+Math.max(.3,lo/L).toFixed(3));
+}
+
 /* ---------- عند فتح أي صفحة ---------- */
 function onPage(page){prime(page);counters(page);drive(page)}
 window.addEventListener('ca:page',e=>onPage(e.detail));
-const first=$('.page.on'); if(first) onPage(first);
+const first=$('.page.on'); if(first) onPage(first); firstPrime=false;
 
 /* ---------- الهيدر وشريط التقدّم وزر الصعود ---------- */
 const top=$('.top'), up=$('#totop');
@@ -64,26 +95,18 @@ function onScroll(){
   top.classList.toggle('scrolled',y>40);
   top.style.setProperty('--p',(h>0?Math.min(1,y/h):0));
   if(up) up.classList.toggle('show',y>700);
-  if(!RM) parallax(y);
+  if(!RM&&innerWidth>860) parallax(y); /* لا منظور على الجوال */
   ticking=false;
 }
 addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
 if(up) up.addEventListener('click',()=>scrollTo({top:0,behavior:RM?'auto':'smooth'}));
 
 /* ---------- المنظور في الهيرو ---------- */
-const layers=$$('.hero .px'); let mx=0;
+const layers=$$('.hero .px'); const mx=0;
 function parallax(y){
   if(!layers.length||y>900) return;
   layers.forEach(l=>{const k=+l.dataset.k||0;l.style.transform=`translate(${(mx*k*40).toFixed(1)}px,${(y*k).toFixed(1)}px)`});
 }
-if(!RM&&matchMedia('(hover:hover)').matches){
-  const hero=$('.hero');
-  if(hero) hero.addEventListener('mousemove',e=>{mx=(e.clientX/innerWidth-.5);requestAnimationFrame(()=>parallax(scrollY))});
-}
 onScroll();
 
-/* ---------- تأثير الضوء على البطاقات ---------- */
-if(!RM&&matchMedia('(hover:hover)').matches){
-  document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.prod,.kcard,.sitem,.co,.door,.evc');if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');c.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%')},{passive:true});
-}
 })();

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<script>(function(d){var t='light';try{if(localStorage.getItem('ca-theme')==='dark')t='dark'}catch(e){}d.dataset.theme=t;var h=location.hash,p=(h.indexOf('#/')===0?h.slice(2):'').split('?')[0].split('/').filter(Boolean),r=p[0]||'home';if(r==='knowledge'&&p[1])r='article';d.dataset.route=r;if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))d.classList.add('motion')})(document.documentElement)</script>
+<script>(function(d){var t='light';try{if(localStorage.getItem('ca-theme')==='dark')t='dark'}catch(e){}d.dataset.theme=t;var h=location.hash,p=(h.indexOf('#/')===0?h.slice(2):'').split('?')[0].split('/').filter(Boolean),r=p[0]||'home';if(r==='knowledge'&&p[1])r='article';if(r==='news'&&p[1])r='newsitem';d.dataset.route=r;if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))d.classList.add('motion')})(document.documentElement)</script>
 <title>جمعية الكرفانات | Caravan Association</title>
 <meta name="description" content="جمعية الكرفانات — جمعية نفع عام مقرها دبي، تمثل ملاك الكرفانات وتنظم ثقافة التخييم في دولة الإمارات العربية المتحدة.">
 <meta property="og:type" content="website">
@@ -32,11 +32,11 @@
       <span><b>جمعية الكرفانات</b><small>CARAVAN ASSOCIATION</small></span>
     </a>
     <nav class="nav" id="nav" aria-label="القائمة الرئيسية">
-      <a href="#/about" data-r="about governance statute news">من نحن</a>
+      <a href="#/about" data-r="about governance statute news newsitem">من نحن</a>
       <a href="#/membership" data-r="membership join verify faq">العضوية</a>
       <a href="#/events" data-r="events">الفعاليات</a>
       <a href="#/knowledge" data-r="knowledge article services">المعرفة</a>
-      <a href="#/directory" data-r="directory">دليل الشركات</a>
+      <a href="#/directory" data-r="directory register-company">دليل الشركات</a>
       <a href="#/store" data-r="store">المتجر</a>
       <a href="#/contact" data-r="contact">تواصل معنا</a>
       <a class="navjoin" href="#/join">انضم إلى الجمعية</a>
@@ -161,7 +161,6 @@
   <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><span>من نحن</span></nav>
     <h1>من نحن</h1>
-    <p>جمعية ذات نفع عام أُسست وفق المرسوم بقانون اتحادي رقم (50) لسنة 2023 في شأن تنظيم مؤسسات النفع العام، وتعمل تحت إشراف هيئة تنمية المجتمع في دبي.</p>
   </div><i class="road2"></i></div>
   <div class="wrap pbody" style="padding-bottom:0">
     <div class="vm">
@@ -191,9 +190,11 @@
     
     <div class="about-grid">
       <div class="about-text">
-        <p>بدأت الجمعية بمجموعة من ملاك الكرفانات الذين جمعهم حب الطريق والبر. اليوم نمثّل مصالح الملاك أمام الجهات المختصة، وننشر ثقافة التخييم المسؤول، ونسعى لأن يجد كل صاحب كرفان مكاناً آمناً يتوقف فيه.</p>
-        <p class="quote">نعمل لتكون رحلة الكرفان في الإمارات تجربة منظّمة وآمنة، تحترم البيئة وتعكس كرم المكان وأهله.</p>
-        <p>خدماتنا موجهة لكافة فئات وشرائح المجتمع، من المالك المتمرّس إلى العائلة التي تفكّر في رحلتها الأولى.</p>
+        <h2 class="h">من نحن</h2>
+        <p>جمعية الكرفانات جمعية ذات نفع عام، مقرها الرئيسي إمارة دبي، ويمتد نطاق عملها إلى دولة الإمارات العربية المتحدة. أُشهرت بموجب القرار الوزاري رقم (216) لسنة 2022، وتعمل على نشر وتعزيز ثقافة التخييم باستخدام الكرفانات، وتمثيل مصالح ملاكها، وتشجيع السياحة الداخلية المنظمة.</p>
+        <p>تسعى الجمعية إلى تطوير تجربة التخييم بالكرفانات من خلال التعاون مع الجهات الحكومية وغير الحكومية لتوفير وتطوير مواقع التخييم والخدمات والمرافق المرتبطة بها، وتقديم التوصيات الفنية والهندسية المتعلقة بإنشاء مواقف مخصصة للكرفانات.</p>
+        <p>وتولي الجمعية اهتماماً بالتوعية بمبادئ التخييم الآمن والمحافظة على البيئة، من خلال البرامج والورش والفعاليات المجتمعية والمبادرات التطوعية، بما يشمل حملات تنظيف مواقع التخييم وتشجيع الممارسات المسؤولة التي تحافظ على الموارد الطبيعية.</p>
+        <p>كما تعمل الجمعية على دعم وتشجيع الصناعات المحلية المرتبطة بالكرفانات وملحقاتها، وتحفيز الابتكار والتطوير الفني في تصميمها، وبناء شراكات تخدم ملاك الكرفانات ومحبي التخييم ومختلف فئات المجتمع.</p>
       </div>
       <ul class="fields" aria-label="مجالات عمل الجمعية">
         <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M5 20l7-14 7 14"/><path d="M10 20l2-4 2 4"/></svg></span><div><b>ثقافة التخييم</b><span>نشر وتنظيم وتعزيز ثقافة التخييم باستخدام الكرفانات.</span></div></li>
@@ -229,6 +230,7 @@
       </div>
       <ol class="timeline">
         <li><small>30 يونيو 2021</small><b>التأسيس</b><p>اتفق الأعضاء المؤسسون على تأسيس جمعية الكرفانات جمعيةً ذات نفع عام مقرها إمارة دبي.</p></li>
+        <li><small>2022</small><b>إشهار الجمعية</b><p>أُشهرت جمعية الكرفانات بموجب القرار الوزاري رقم (216) لسنة 2022.</p></li>
         <li><small>الترخيص</small><b>اعتماد النظام الأساسي الجديد</b><p>اعتمدت هيئة تنمية المجتمع في دبي النظام الأساسي المحدَّث وفق المرسوم بقانون اتحادي رقم (50) لسنة 2023.</p></li>
         <li><small>المواقف</small><b>افتتاح مواقف ميناء الظنة</b><p>إطلاق مواقف مخصصة للكرفانات على الواجهة البحرية في منطقة الظفرة.</p></li>
         <li><small>المواقف</small><b>الافتتاح التجريبي لمواقف جبل الظنة</b><p>تشغيل تجريبي لموقع جديد بإطلالة مباشرة على البحر.</p></li>
@@ -291,7 +293,7 @@
             <li>يُفتح باب الترشح قبل الاجتماع بـ 30 يوماً ويُغلق قبله بـ 15 يوماً.</li>
             <li>الانتخاب بالاقتراع السري والتصويت الفردي.</li>
             <li>الحاصلان على أعلى الأصوات بعد الفائزين عضوا احتياط.</li>
-            <li>يصح الاجتماع العادي بحضور أكثر من نصف الأعضاء، وغير العادي بثلاثة أرباعهم.</li>
+            <li>يصح الاجتماع العادي بحضور أكثر من نصف الأعضاء المستوفين للشروط، وفي المؤجل ربع عددهم أو 7 أعضاء أيهما أكثر. وغير العادي بثلاثة أرباعهم، وفي المؤجل بثلثيهم.</li>
           </ul>
         </div>
         <div>
@@ -316,7 +318,7 @@
     <p>ملخص أبواب النظام الأساسي المعتمد والمصدّق من هيئة تنمية المجتمع، في 96 مادة و14 باباً.</p>
   </div><i class="road2"></i></div>
   <div class="wrap pbody">
-    <div class="notice" style="margin-bottom:24px">هذا ملخص للاطلاع العام. النص المعتمد هو المرجع عند أي اختلاف، ويحق لكل عضو الاطلاع عليه كاملاً بطلب رسمي إلى أمين السر.</div>
+    <div class="notice" style="margin-bottom:24px">هذا ملخص للاطلاع العام. النص المعتمد هو المرجع عند أي اختلاف. يمكن للأعضاء الاطلاع على النظام الأساسي المعتمد وتحميله من حساباتهم، أو طلبه من أمين السر. ويُتاح لطالبي العضوية ضمن إجراءات الانتساب.</div>
     <div class="chap" id="chapters"></div>
   </div>
 </div>
@@ -361,9 +363,10 @@
 
     <div class="fees" role="table" aria-label="جدول الرسوم">
       <div class="fees-row" role="row"><div role="columnheader">البند</div><div role="columnheader">المبلغ</div><div role="columnheader">متى يُدفع</div></div>
-      <div class="fees-row" role="row"><div role="cell">رسم الانضمام</div><div role="cell" class="amt">300 درهم</div><div role="cell">مرة واحدة عند قبول طلب جديد أو إعادة التسجيل</div></div>
+      <div class="fees-row" role="row"><div role="cell">رسم الانضمام</div><div role="cell" class="amt">300 درهم</div><div role="cell">يُدفع مرة واحدة عند الانضمام لعضوية الجمعية، ولا يتكرر مع التجديد السنوي</div></div>
       <div class="fees-row" role="row"><div role="cell">الاشتراك السنوي — منتسب</div><div role="cell" class="amt">320 درهم</div><div role="cell">كل سنة، ويُحتسب عن السنة الأولى بنسبة الأشهر المتبقية</div></div>
       <div class="fees-row" role="row"><div role="cell">الاشتراك السنوي — مشترك</div><div role="cell" class="amt">300 درهم</div><div role="cell">كل سنة، ويُحتسب عن السنة الأولى بنسبة الأشهر المتبقية</div></div>
+      <div class="fees-foot" id="rereg-note"></div>
       <div class="fees-foot">تمتد سنة الاشتراك من 1 يناير حتى 31 ديسمبر. يُعفى الأعضاء المؤسسون من الرسوم، ويجوز إعفاء كبار المواطنين وأصحاب الهمم من الاشتراك السنوي بتوصية من مجلس الإدارة وموافقة الجمعية العمومية.</div>
     </div>
 
@@ -409,18 +412,29 @@
     </div>
 
     <div class="rd">
-      <details>
-        <summary>حقوق العضو</summary>
-        <ul>
-          <li>حضور اجتماعات الجمعيات العمومية بعد مضي 3 أشهر على العضوية، متى استوفى الشروط المقررة.</li>
-          <li>المشاركة في التصويت على قرارات الجمعية العمومية بعد مضي 3 أشهر على العضوية.</li>
-          <li>الترشح لمجلس الإدارة بعد 3 أشهر على الأقل من الانضمام.</li>
-          <li>ممارسة الأنشطة المتاحة والانتفاع بممتلكات الجمعية وفق لوائحها.</li>
-          <li>الاطلاع على بيانات وتقارير الجمعية وفق ما يقرره مجلس الإدارة.</li>
-          <li>الحصول على نشرات الجمعية وإصداراتها.</li>
-          <li>تخفيض عند الاشتراك في خدمات الجمعية التخصصية.</li>
-          <li>تخفيض في رسوم اللقاءات والمؤتمرات التي تعقدها الجمعية أو الجهات المتعاونة معها.</li>
-        </ul>
+      <details class="rights">
+        <summary>حقوق ومزايا الأعضاء حسب فئة العضوية</summary>
+        <div class="rbody">
+          <h4>المزايا والخدمات المشتركة للأعضاء</h4>
+          <ul>
+            <li>ممارسة الأنشطة المتاحة والانتفاع بممتلكات الجمعية وفق لوائحها.</li>
+            <li>الاطلاع على بيانات وتقارير الجمعية وفق ما يقرره مجلس الإدارة.</li>
+            <li>الحصول على نشرات الجمعية وإصداراتها.</li>
+            <li>تخفيض عند الاشتراك في خدمات الجمعية التخصصية.</li>
+            <li>تخفيض في رسوم اللقاءات والمؤتمرات التي تعقدها الجمعية أو الجهات المتعاونة معها.</li>
+          </ul>
+          <h4>العضو المنتسب</h4>
+          <p>يستفيد من جميع المزايا والخدمات المشتركة أعلاه، وله أيضاً:</p>
+          <ul>
+            <li>حضور اجتماعات الجمعيات العمومية بعد مضي 3 أشهر على العضوية، متى استوفى الشروط المقررة.</li>
+            <li>المشاركة في التصويت على قرارات الجمعية العمومية بعد مضي 3 أشهر على العضوية.</li>
+            <li>الترشح لمجلس الإدارة بعد 3 أشهر على الأقل من الانضمام.</li>
+          </ul>
+          <h4>العضو المشترك</h4>
+          <p>يستفيد من المزايا والخدمات المشتركة أعلاه، دون حق حضور اجتماعات الجمعية العمومية أو التصويت أو الترشح.</p>
+          <h4>العضو الشرفي</h4>
+          <p>يستفيد من جميع المزايا والخدمات المشتركة أعلاه، وله الحقوق المقررة لأعضاء الجمعية، بما فيها حضور اجتماعات الجمعية العمومية متى استوفى شروطها، عدا التصويت والترشح والانتخاب لعضوية المجلس.</p>
+        </div>
       </details>
       <details>
         <summary>واجبات العضو</summary>
@@ -451,7 +465,7 @@
   <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><a href="#/membership">العضوية</a><span aria-hidden="true">/</span><span>طلب الانضمام</span></nav>
     <h1>طلب الانضمام أو التجديد</h1>
-    <p>النموذج ع/01 بنسخته الإلكترونية. يُحفظ ما تكتبه على جهازك تلقائياً حتى تكمل الطلب.</p>
+    <p>النموذج ع/01 بنسخته الإلكترونية.</p>
   </div><i class="road2"></i></div>
   <section class="join">
   <div class="wrap">
@@ -459,8 +473,9 @@
     <div class="join-grid">
       <div class="formbox">
         <header><h2>نموذج طلب الانضمام أو التجديد</h2><small>رمز النموذج: ع/01 — الإصدار 1.0</small></header>
-        <div class="progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
         <div class="steplabel" id="steplabel" aria-live="polite"></div>
+        <div class="draftbar" id="draftbar" hidden></div>
         <form id="form" novalidate>
           <!-- Step 1 -->
           <div class="fstep" data-title="نوع الطلب وفئة العضوية">
@@ -494,7 +509,7 @@
             <div class="field"><label for="name">الاسم الكامل كما في الهوية</label><input type="text" id="name" name="name" autocomplete="name" required><div class="msg">اكتب اسمك الكامل كما يظهر في الهوية.</div></div>
             <div class="row">
               <div class="field"><label for="eid">رقم الهوية الإماراتية</label><input type="text" id="eid" name="eid" inputmode="numeric" placeholder="784-XXXX-XXXXXXX-X" dir="ltr" required><div class="msg">رقم الهوية 15 رقماً ويبدأ بـ 784.</div></div>
-              <div class="field"><label for="dob">تاريخ الميلاد</label><input type="date" id="dob" name="dob" required><div class="msg">أدخل تاريخ ميلاد صحيحاً.</div><div class="hint">يُشترط بلوغ سن الرشد وفق التشريعات السارية.</div></div>
+              <div class="field"><label for="dob">تاريخ الميلاد</label><input type="date" id="dob" name="dob" required><div class="msg" id="dob-msg">يرجى إدخال تاريخ ميلاد صحيح، لا يمكن أن يكون في المستقبل.</div><div class="hint" id="dob-hint">يُشترط بلوغ سن الرشد وفق التشريعات السارية.</div></div>
             </div>
             <div class="row">
               <div class="field"><label for="nat">الجنسية</label>
@@ -536,12 +551,18 @@
                   <label class="opt"><input type="radio" name="ctype" value="كامبر"><span>كامبر</span></label>
                   <label class="opt"><input type="radio" name="ctype" value="لا أملك كرفاناً (طلب استثناء)"><span>لا أملك كرفاناً (طلب استثناء)</span></label>
                 </div></div>
+              <p class="hint reqhint" id="caravan-hint">الحقول المعلّمة بـ <span class="req">*</span> إلزامية لنوع الكرفان المختار.</p>
               <div class="row" id="caravan-detail">
-                <div class="field"><label for="year">سنة الصنع</label><input type="number" id="year" name="year" min="1960" max="2027" dir="ltr"></div>
-                <div class="field"><label for="made">بلد الصنع</label><input type="text" id="made" name="made"></div>
-                <div class="field"><label for="cemirate">إمارة التسجيل</label><input type="text" id="cemirate" name="cemirate"></div>
-                <div class="field"><label for="plate">رقم اللوحة</label><input type="text" id="plate" name="plate" dir="ltr"></div>
+                <div class="field" data-cf="year"><label for="year">سنة الصنع</label><input type="number" id="year" name="year" min="1960" max="2027" dir="ltr"><div class="msg">أدخل سنة صنع صحيحة.</div></div>
+                <div class="field" data-cf="made"><label for="made">بلد الصنع</label><input type="text" id="made" name="made"><div class="msg">أدخل بلد الصنع.</div></div>
+                <div class="field" data-cf="cemirate"><label for="cemirate">إمارة التسجيل</label><select id="cemirate" name="cemirate"><option value="">اختر الإمارة</option><option>أبوظبي</option><option>دبي</option><option>الشارقة</option><option>عجمان</option><option>أم القيوين</option><option>رأس الخيمة</option><option>الفجيرة</option></select><div class="msg">اختر إمارة التسجيل.</div></div>
+                <div class="field" data-cf="plate"><label for="plate">رقم اللوحة</label><input type="text" id="plate" name="plate" dir="ltr"><div class="msg">أدخل رقم اللوحة.</div></div>
               </div>
+              <div id="caravan-ex" hidden>
+                <div class="notice">اخترت طلب الاستثناء من شرط ملكية الكرفان. يقرره مجلس الإدارة، ولا تلزمك بيانات كرفان لا تملكه.</div>
+                <div class="field"><label for="exwhy">مبررات طلب الاستثناء</label><textarea id="exwhy" name="exwhy" style="min-height:100px"></textarea><div class="msg">اكتب مبررات طلب الاستثناء (20 حرفاً على الأقل).</div></div>
+              </div>
+              <div class="field msgwrap" id="f-caravan"><div class="msg">يرجى استكمال بيانات الكرفان المطلوبة قبل المتابعة.</div></div>
             </div>
           </div>
 
@@ -566,13 +587,13 @@
               <label class="check"><input type="checkbox" name="r3">أرفقت مستنداً رسمياً يثبت إقامتي في الدولة مدة لا تقل عن ثلاث سنوات سابقة.</label>
             </div>
             <label class="check"><input type="checkbox" name="d3" required>أؤكد صحة جميع البيانات والمستندات المقدمة وأنها كاملة وحديثة، وسأبلّغ الجمعية بأي تغيير عليها.</label>
-            <label class="check"><input type="checkbox" name="d4" required>اطلعت على النظام الأساسي للجمعية ولوائحها، وألتزم بالمحافظة على سرية المعلومات التي أطلع عليها بحكم عضويتي.</label>
-            <label class="check"><input type="checkbox" name="d5" required>أخوّل الجمعية باستخدام بياناتي المسجلة لأغراضها ومع الجهات المختصة عند الطلب.</label>
+            <label class="check"><input type="checkbox" name="d4" required><span>اطلعت على النظام الأساسي للجمعية ولوائحها، وألتزم بالمحافظة على سرية المعلومات التي أطلع عليها بحكم عضويتي. <a href="#" data-statute>اطّلع على النظام الأساسي المعتمد</a></span></label>
+            <label class="check"><input type="checkbox" name="d5" required><span>اطّلعت على <a href="#/privacy" target="_blank">سياسة الخصوصية</a>، وأوافق على معالجة بياناتي ومستنداتي لغرض دراسة طلب العضوية وإدارته وتقديم الخدمات المرتبطة بها وفق السياسة.</span></label>
             <div class="field msgwrap" id="f-decl"><div class="msg">يلزم الإقرار بجميع البنود الإلزامية للمتابعة.</div></div>
           </div>
 
-          <!-- Step 5 -->
-          <div class="fstep" data-title="الرسوم والمراجعة">
+          <!-- Step 6 -->
+          <div class="fstep" data-title="الرسوم وطلب الإعفاء">
             <h3>الرسوم وطلب الإعفاء</h3>
             <div class="field" id="f-ex"><span class="legend">طلب الإعفاء من الرسم السنوي (اختياري)</span>
               <label class="check"><input type="checkbox" name="ex1">من كبار المواطنين</label>
@@ -584,8 +605,17 @@
             <div class="notice" style="margin-top:14px">لا يُطلب الدفع الآن. تُسدَّد الرسوم بعد صدور قرار مجلس الإدارة بالقبول وخلال 30 يوماً من إخطارك. المبالغ المعروضة تقديرية وتُعتمد نهائياً بعد قرار القبول.</div>
           </div>
 
+          <!-- Step 7 -->
+          <div class="fstep" data-title="راجع طلبك قبل الإرسال">
+            <h3>راجع طلبك قبل الإرسال</h3>
+            <div class="notice">يرجى التأكد من صحة بياناتك ومرفقاتك قبل إرسال الطلب. الرسوم المعروضة تقديرية، ويكون السداد بعد قبول الطلب وإخطارك من الجمعية.</div>
+            <div class="review" id="review"></div>
+          </div>
+
+          <p class="hint draftnote">يمكنك حفظ طلبك كمسودة والعودة إليه لاحقاً من خلال حسابك لاستكمال البيانات والمرفقات. حفظ المسودة لا يُعد إرسالاً للطلب؛ يُقدَّم الطلب للمراجعة عند الضغط على زر إرسال الطلب.</p>
           <div class="fnav">
             <button type="button" class="btn2" id="prev">السابق</button>
+            <button type="button" class="btn2" id="savedraft">حفظ الطلب كمسودة</button>
             <button type="button" class="cta" id="next">التالي</button>
           </div>
         </form>
@@ -683,9 +713,10 @@
         <i class="rule"></i><h2 class="h">كيف يعمل التسجيل</h2>
         <div class="prose">
           <ul>
-            <li>لكل فعالية سعة محددة، ويُغلق التسجيل تلقائياً عند اكتمال العدد أو في موعد الإغلاق المعلن.</li>
+            <li>لكل فعالية سعة محددة وموعد لإغلاق التسجيل يظهر في تفاصيلها.</li>
+            <li>الأولوية لأعضاء الجمعية ذوي العضوية السارية. طلبات غير الأعضاء تبقى «قيد الانتظار»، ثم تُقبل بحسب الأماكن المتبقية بعد إغلاق التسجيل وحصر طلبات الأعضاء.</li>
             <li>قد تكون الفعالية مجانية أو مدفوعة، للأعضاء فقط، أو بسعرين أحدهما مخفّض للأعضاء.</li>
-            <li>تصلك تذكرة إلكترونية بالبريد وعليها رمز QR يُمسح عند الدخول، ولا تُستخدم التذكرة مرتين.</li>
+            <li>تصلك رسالة تلقائية توضح حالة تسجيلك. وعند تأكيد الحجز تصلك التذكرة الإلكترونية برمز QR مع تفاصيل الفعالية وإرشادات الوصول.</li>
             <li>في الفعاليات العامة يكون التسجيل للفرد، وفي الرحلات للكرفان أو المركبة مع مرافقيها.</li>
           </ul>
         </div>
@@ -715,12 +746,12 @@
   </div><i class="road2"></i></div>
   <div class="wrap pbody">
     <div class="svc">
-      <article><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span><div><h3>تمثيل الملاك</h3><p>ننقل ملاحظات الملاك واحتياجاتهم إلى الجهات الحكومية المعنية، ونتابعها حتى الوصول إلى حلول.</p><a class="more" href="#/contact?type=inquiry">أرسل ملاحظتك</a></div></article>
-      <article><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-6 9 6v12"/><path d="M8 21v-6h8v6"/></svg></span><div><h3>استشارات المواقف</h3><p>توصيات فنية وهندسية للجهات والمطورين الراغبين في إنشاء مواقف مخصصة للكرفانات.</p><a class="more" href="#/contact?type=partner">اطلب استشارة</a></div></article>
+      <article><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span><div><h3>تمثيل الملاك</h3><p>ننقل ملاحظات ملاك الكرفانات واحتياجاتهم إلى الجهات المعنية، ونتابعها بالتنسيق معها للمساهمة في إيجاد الحلول المناسبة.</p><a class="more" href="#/contact?type=inquiry">أرسل ملاحظتك</a></div></article>
+      <article><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-6 9 6v12"/><path d="M8 21v-6h8v6"/></svg></span><div><h3>استشارات المواقف</h3><p>توصيات فنية وهندسية للجهات والمطورين الراغبين في إنشاء مواقف مخصصة للكرفانات.</p><a class="more" href="#/contact?type=inquiry">اطلب استشارة</a></div></article>
       <article><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v8H4v-8M2 7h20v5H2zM12 22V7M12 7c-1.5-3-5-3-5-1s3 1 5 1zm0 0c1.5-3 5-3 5-1s-3 1-5 1z"/></svg></span><div><h3>مزايا وخصومات الأعضاء</h3><p>تخفيضات على خدمات الجمعية التخصصية وفعالياتها، وعلى فعاليات الجهات المتعاونة معها.</p><a class="more" href="#/membership">مزايا العضوية</a></div></article>
       <article><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg></span><div><h3>التوعية والتدريب</h3><p>أدلة عملية وبرامج في المدارس والجمعيات حول التخييم الآمن والسحب والمحافظة على البيئة.</p><a class="more" href="#/knowledge">مركز المعرفة</a></div></article>
       <article><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span><div><h3>مركز البلاغات</h3><p>أبلغ عن ضرر في موقع تخييم أو مخالفة أو حالة تحتاج متابعة، ونحيلها إلى الجهة المختصة.</p><a class="more" href="#/contact?type=report">قدّم بلاغاً</a></div></article>
-      <article><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></span><div><h3>شراكات الشركات</h3><p>نعقد شراكات مع شركات الكرفانات والموردين لتنظيم أيام تجربة ومعارض وعروض للأعضاء.</p><a class="more" href="#/contact?type=partner">كن شريكاً</a></div></article>
+      <article><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></span><div><h3>شراكات وخصومات للأعضاء</h3><p>نرحب بالشركات الراغبة في تقديم خصومات على خدماتها أو منتجاتها لأعضاء جمعية الكرفانات. سجّل بيانات شركتك وأضف عرضك ليظهر في دليل الشركات.</p><a class="more" href="#/register-company">سجّل شركتك</a></div></article>
     </div>
   </div>
 </div>
@@ -802,7 +833,7 @@
   <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><span>تواصل معنا</span></nav>
     <h1>تواصل معنا ومركز البلاغات</h1>
-    <p>استفسار أو اقتراح أو بلاغ عن موقع تخييم: اختر نوع الرسالة ليصل طلبك إلى المسؤول المناسب.</p>
+    <p>استفسار أو اقتراح أو بلاغ عن موقع تخييم: اختر نوع الرسالة ليصل طلبك إلى المسؤول المناسب. وللشركات والرعاة: <a href="#/register-company" style="color:var(--gold-hi)">سجّل شركتك</a>.</p>
   </div><i class="road2"></i></div>
   <div class="wrap pbody">
     <div class="contact-grid">
@@ -813,7 +844,6 @@
             <label class="opt"><input type="radio" name="ktype" value="inquiry" checked><span>استفسار</span></label>
             <label class="opt"><input type="radio" name="ktype" value="report"><span>بلاغ</span></label>
             <label class="opt"><input type="radio" name="ktype" value="suggest"><span>اقتراح موقع</span></label>
-            <label class="opt"><input type="radio" name="ktype" value="partner"><span>شراكة أو رعاية</span></label>
           </div>
         </div>
         <div class="row">
@@ -822,10 +852,19 @@
         </div>
         <div class="field"><label for="kmail">البريد الإلكتروني (اختياري)</label><input type="email" id="kmail" name="kmail" dir="ltr" autocomplete="email"><div class="msg">أدخل بريداً إلكترونياً صحيحاً أو اتركه فارغاً.</div></div>
         <div class="field" id="f-kloc" hidden><label for="kloc">الموقع</label>
-          <select id="kloc" name="kloc"><option value="">اختر الموقع</option><option>مواقف جبل الظنة</option><option>مواقف ميناء الظنة</option><option>مواقف ياس كايت سيرف</option><option>مواقف كرفانات السويح</option><option>موقع آخر</option></select>
+          <select id="kloc" name="kloc"><option value="">اختر الموقع</option><option>مواقف جبل الظنة</option><option>مواقف ميناء الظنة</option><option>مواقف ياس كايت سيرف</option><option>مواقف كرفانات السويح</option><option value="other">موقع آخر</option></select>
           <div class="msg">اختر الموقع المتعلق بالبلاغ.</div></div>
+        <div class="field" id="f-kplace" hidden><label for="kplace">اسم الموقع</label><input type="text" id="kplace" name="kplace"><div class="msg">اكتب اسم الموقع.</div></div>
+        <div class="field" id="f-kmap" hidden><label for="kmap">رابط المكان على الخريطة أو الإحداثيات</label><input type="text" id="kmap" name="kmap" dir="ltr" placeholder="https://maps.google.com/… أو 24.4539, 54.3773"><div class="hint">حدد النقطة المقصودة بالبلاغ أو الموقع الذي تقترحه.</div><div class="msg">أدخل رابط خريطة يبدأ بـ https أو إحداثيات مثل 24.4539, 54.3773.</div></div>
         <div class="field"><label for="ksub">الموضوع</label><input type="text" id="ksub" name="ksub"><div class="msg">اكتب موضوعاً مختصراً.</div></div>
         <div class="field"><label for="kmsg" id="kmsg-l">رسالتك</label><textarea id="kmsg" name="kmsg"></textarea><div class="msg">اكتب تفاصيل رسالتك (20 حرفاً على الأقل).</div></div>
+        <div class="field" id="f-kimg" hidden><span class="legend">إرفاق صور (اختياري)</span>
+          <div class="hint" id="kimg-hint"></div>
+          <label class="btn2 up upbtn">اختر صوراً<input type="file" id="kimg" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" multiple></label>
+          <div class="thumbs" id="kthumbs"></div>
+          <div class="msg" id="kimg-msg"></div>
+        </div>
+        <p class="hint consent">بإرسال الرسالة توافق على معالجة بياناتك وفق <a href="#/privacy">سياسة الخصوصية</a>.</p>
         <button class="cta" type="submit">أرسل الرسالة</button>
         <div class="okmsg" id="cok" role="status"></div>
       </form>
@@ -863,15 +902,18 @@
   <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><span>دليل الشركات</span></nav>
     <h1>دليل الشركات والموردين</h1>
-    <p>شركات البيع والتأجير والصيانة والمعدات ومواقع التخييم، وكثير منها يقدّم خصومات لأعضاء الجمعية.</p>
+    <p>دليل الشركات والمحلات التي تقدم خصومات ومزايا لأعضاء جمعية الكرفانات في دول الخليج. ابحث باسم الشركة أو الخدمة، وحدد النشاط والدولة للوصول إلى الجهة المناسبة.</p>
   </div><i class="road2"></i></div>
   <div class="wrap pbody tight">
     <div class="toolbar">
-      <div class="search" style="margin:0;flex:1;min-width:240px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="text" id="dq" placeholder="ابحث باسم الشركة أو الخدمة" aria-label="ابحث في الدليل"></div>
-      <select id="dem" aria-label="الإمارة" style="width:auto;min-width:160px"><option value="">كل الإمارات</option><option>أبوظبي</option><option>دبي</option><option>الشارقة</option><option>عجمان</option><option>أم القيوين</option><option>رأس الخيمة</option><option>الفجيرة</option></select>
+      <div class="search" style="margin:0;flex:1;min-width:240px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="text" id="dq" placeholder="ابحث باسم الشركة أو الخدمة أو النشاط" aria-label="ابحث في الدليل"></div>
+      <select id="dcountry" aria-label="الدولة" style="width:auto;min-width:160px"><option value="">كل دول الخليج</option></select>
+      <select id="dem" aria-label="الإمارة" style="width:auto;min-width:160px" hidden><option value="">كل الإمارات</option></select>
     </div>
+    <p class="terms-line" id="dterms"></p>
     <div class="chips" role="group" aria-label="فئة الشركات" id="dchips"></div>
     <div class="dlist" id="dlist"></div>
+    <div class="joinbar" style="margin-top:28px"><div><h2>شركتك تقدم خصومات لأعضاء الجمعية؟</h2><p>سجّل بيانات شركتك وعرضك، وتظهر في الدليل بعد اعتماد الجمعية.</p></div><a class="cta" href="#/register-company">سجّل شركتك</a></div>
     <p class="samplenote">الشركات المعروضة أسماء تجريبية لعرض شكل الدليل.</p>
   </div>
   <div class="band sand">
@@ -890,14 +932,129 @@
   </div>
 </div>
 
+<!-- ================= NEWS ITEM ================= -->
+<div class="page" id="p-newsitem" data-title="الأخبار">
+  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
+    <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><a href="#/news">الأخبار</a><span aria-hidden="true">/</span><span id="n-crumb"></span></nav>
+    <h1 id="n-title"></h1>
+    <p id="n-date"></p>
+  </div><i class="road2"></i></div>
+  <div class="wrap pbody">
+    <a class="backlink" href="#/news">العودة إلى الأخبار</a>
+    <article class="newsitem">
+      <div class="nhero" id="n-img"></div>
+      <div class="prose" id="n-body"></div>
+    </article>
+  </div>
+</div>
+
+<!-- ================= PRIVACY ================= -->
+<div class="page" id="p-privacy" data-title="سياسة الخصوصية">
+  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
+    <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><span>سياسة الخصوصية</span></nav>
+    <h1>سياسة الخصوصية</h1>
+    <p>كيف نجمع بياناتك ونستخدمها ونحفظها، وكيف تطلب تصحيحها أو حذفها.</p>
+  </div><i class="road2"></i></div>
+  <div class="wrap pbody">
+    <div class="notice" style="max-width:44em">مسودة للمراجعة: يُعتمد نص السياسة من الجمعية قبل النشر، وتُستكمل التفاصيل الواردة بين الأقواس [ ] من طريقة التشغيل الفعلية لدى الجمعية والشركة.</div>
+    <div class="prose" id="privacy"></div>
+  </div>
+</div>
+
+<!-- ================= COMPANY REGISTRATION ================= -->
+<div class="page" id="p-register-company" data-title="تسجيل شركة">
+  <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
+    <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><a href="#/directory">دليل الشركات</a><span aria-hidden="true">/</span><span>تسجيل شركة</span></nav>
+    <h1>شراكات وخصومات للأعضاء</h1>
+    <p>نرحب بالشركات الراغبة في تقديم خصومات على خدماتها أو منتجاتها لأعضاء جمعية الكرفانات. سجّل بيانات شركتك وأضف عرضك ليظهر في دليل الشركات.</p>
+  </div><i class="road2"></i></div>
+  <div class="wrap pbody">
+    <div class="contact-grid">
+      <form class="cform" id="coform" novalidate>
+        <div class="field"><span class="legend" id="lg-coop">نوع التعاون</span>
+          <div class="opts" role="radiogroup" aria-labelledby="lg-coop">
+            <label class="opt"><input type="radio" name="coop" value="discount" checked><span>خصومات للأعضاء</span></label>
+            <label class="opt"><input type="radio" name="coop" value="sponsor"><span>رعاية أو شراكة</span></label>
+          </div></div>
+        <h3 class="fh2">بيانات الشركة</h3>
+        <div class="field"><label for="co-name">اسم الشركة</label><input type="text" id="co-name" name="coname"><div class="msg">اكتب اسم الشركة.</div></div>
+        <div class="row">
+          <div class="field"><label for="co-country">الدولة</label><select id="co-country" name="cocountry"><option value="">اختر الدولة</option></select><div class="msg">اختر الدولة.</div></div>
+          <div class="field" id="f-co-em" hidden><label for="co-em">الإمارة</label><select id="co-em" name="coem"><option value="">اختر الإمارة</option></select><div class="msg">اختر الإمارة.</div></div>
+          <div class="field" id="f-co-city"><label for="co-city">المدينة</label><input type="text" id="co-city" name="cocity"><div class="msg">اكتب المدينة.</div></div>
+        </div>
+        <div class="field" id="f-co-acts"><span class="legend">النشاط <small style="font-weight:400;color:var(--muted)">(يمكن اختيار أكثر من نشاط)</small></span><div class="opts" id="co-acts"></div><div class="msg">اختر نشاطاً واحداً على الأقل.</div></div>
+        <div class="field"><label for="co-svc">الخدمات أو المنتجات المقدمة</label><textarea id="co-svc" name="cosvc" style="min-height:90px"></textarea><div class="msg">صف خدمات الشركة أو منتجاتها باختصار.</div></div>
+        <div class="row">
+          <div class="field"><label for="co-phone">رقم التواصل</label><input type="tel" id="co-phone" name="cophone" dir="ltr" placeholder="+971 5X XXX XXXX"><div class="msg">أدخل رقم تواصل صحيحاً مع رمز الدولة.</div></div>
+          <div class="field"><label for="co-wa">واتساب (اختياري)</label><input type="tel" id="co-wa" name="cowa" dir="ltr"></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="co-ig">إنستغرام (اختياري)</label><input type="text" id="co-ig" name="coig" dir="ltr" placeholder="@account"></div>
+          <div class="field"><label for="co-web">الموقع الإلكتروني (اختياري)</label><input type="text" id="co-web" name="coweb" dir="ltr" placeholder="https://"><div class="msg">أدخل رابطاً يبدأ بـ https://</div></div>
+        </div>
+        <div class="field"><label for="co-map">رابط المكان على الخريطة (اختياري)</label><input type="text" id="co-map" name="comap" dir="ltr" placeholder="https://maps.google.com/…"><div class="msg">أدخل رابطاً يبدأ بـ https://</div></div>
+        <div class="field" id="f-co-logo"><span class="legend">شعار الشركة</span>
+          <div class="hint" id="co-logo-hint"></div>
+          <div class="logoup"><div class="logoprev" id="co-logo-prev" aria-hidden="true">شعار</div><label class="btn2 up upbtn">اختر الشعار<input type="file" id="co-logo" accept=".png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp"></label></div>
+          <div class="msg" id="co-logo-msg"></div>
+        </div>
+
+        <div id="co-discounts">
+          <h3 class="fh2">الخصومات المقدمة لأعضاء الجمعية</h3>
+          <p class="hint" style="margin-top:-6px">حدد النوع الذي تقدمه شركتك، أو الاثنين معاً. لا يلزم تعبئة خصم لا تقدمه.</p>
+          <fieldset class="disc"><legend><label class="check" style="border:0;padding:0"><input type="checkbox" id="co-d1" name="cod1">خصم الخدمات والصيانة</label></legend>
+            <div class="row3" hidden>
+              <div class="field"><label for="co-d1p">نسبة الخصم</label><input type="text" id="co-d1p" name="cod1p" dir="ltr" placeholder="10%"><div class="msg">أدخل نسبة بين 1% و100%.</div></div>
+              <div class="field"><label for="co-d1i">الخدمات المشمولة</label><input type="text" id="co-d1i" name="cod1i"><div class="msg">حدد الخدمات المشمولة.</div></div>
+              <div class="field"><label for="co-d1u">مدة سريان العرض</label><input type="text" id="co-d1u" name="cod1u" placeholder="حتى 31 ديسمبر 2026"><div class="msg">حدد مدة سريان العرض.</div></div>
+            </div></fieldset>
+          <fieldset class="disc"><legend><label class="check" style="border:0;padding:0"><input type="checkbox" id="co-d2" name="cod2">خصم المنتجات</label></legend>
+            <div class="row3" hidden>
+              <div class="field"><label for="co-d2p">نسبة الخصم</label><input type="text" id="co-d2p" name="cod2p" dir="ltr" placeholder="10%"><div class="msg">أدخل نسبة بين 1% و100%.</div></div>
+              <div class="field"><label for="co-d2i">المنتجات المشمولة</label><input type="text" id="co-d2i" name="cod2i"><div class="msg">حدد المنتجات المشمولة.</div></div>
+              <div class="field"><label for="co-d2u">مدة سريان العرض</label><input type="text" id="co-d2u" name="cod2u" placeholder="حتى 31 ديسمبر 2026"><div class="msg">حدد مدة سريان العرض.</div></div>
+            </div></fieldset>
+          <div class="field msgwrap" id="f-co-disc"><div class="msg">اختر خصماً واحداً على الأقل، أو اختر «رعاية أو شراكة» في نوع التعاون.</div></div>
+          <div class="notice" id="co-terms"></div>
+        </div>
+
+        <h3 class="fh2">الشخص المسؤول عن الطلب</h3>
+        <p class="hint" style="margin-top:-6px">تُحفظ هذه البيانات للتواصل الإداري فقط ولا تُنشر. يُعرض للجمهور رقم تواصل الشركة وروابطها أعلاه.</p>
+        <div class="row">
+          <div class="field"><label for="co-pn">الاسم</label><input type="text" id="co-pn" name="copn" autocomplete="name"><div class="msg">اكتب اسم الشخص المسؤول.</div></div>
+          <div class="field"><label for="co-pp">الهاتف</label><input type="tel" id="co-pp" name="copp" dir="ltr"><div class="msg">أدخل رقم هاتف صحيحاً.</div></div>
+        </div>
+        <div class="field"><label for="co-pe">البريد الإلكتروني</label><input type="email" id="co-pe" name="cope" dir="ltr" autocomplete="email"><div class="msg">أدخل بريداً إلكترونياً صحيحاً.</div></div>
+        <label class="check"><input type="checkbox" id="co-ok" name="cook"><span>أؤكد صحة البيانات وأن لي صلاحية تقديمها عن الشركة، واطّلعت على <a href="#/privacy">سياسة الخصوصية</a>.</span></label>
+        <div class="field msgwrap" id="f-co-ok"><div class="msg">يلزم الإقرار للمتابعة.</div></div>
+        <button class="cta" type="submit" style="margin-top:14px">أرسل طلب التسجيل</button>
+        <div class="okmsg" id="co-done" role="status"></div>
+      </form>
+      <aside class="cside">
+        <div class="box dark"><b>كيف يتم التسجيل</b><p>ترسل بيانات شركتك وعرضك، فيكون الطلب «قيد المراجعة» حتى تعتمده الجمعية، ثم تُنشر بطاقة الشركة في الدليل تلقائياً من البيانات نفسها.</p></div>
+        <div class="box"><b>للرعاة</b><p>اختر «رعاية أو شراكة» في نوع التعاون، وتظهر بياناتك في قسم شركاء الجمعية ورعاتها دون إلزامك بخانات الخصم.</p></div>
+        <div class="box"><b>للاستفسار</b><div data-contact></div></div>
+      </aside>
+    </div>
+  </div>
+</div>
+
 <!-- ================= ACCOUNT ================= -->
 <div class="page" id="p-account" data-title="حسابي">
   <div class="phero"><svg class="bg" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="220" cy="120" r="90" fill="#C99A35" opacity=".12"/><path d="M0 220 C240 180 420 230 700 200 C960 172 1180 226 1440 190 V300 H0Z" fill="#2E2928"/><path d="M0 262 C300 240 620 280 900 252 C1140 230 1300 262 1440 250 V300 H0Z" fill="#363030"/></svg><div class="wrap">
     <nav class="crumbs" aria-label="مسار التنقل"><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><span>حسابي</span></nav>
     <h1>حسابي</h1>
-    <p>تذاكر الفعاليات وطلبات المتجر المسجلة من هذا الجهاز.</p>
+    <p>عضويتك وطلباتك وتذاكر الفعاليات وطلبات المتجر المسجلة من هذا الجهاز.</p>
   </div><i class="road2"></i></div>
   <div class="wrap pbody tight">
+    <div class="acc" style="margin-bottom:40px">
+      <section aria-labelledby="h-mem" style="padding:0"><h2 class="h" id="h-mem">عضويتي</h2>
+        <div class="ticket" style="grid-template-columns:1fr auto"><div><b>النظام الأساسي المعتمد</b><small>متاح لك طوال مدة عضويتك للاطلاع والتحميل.</small></div><a class="btn2" href="#" data-statute style="text-decoration:none">تحميل النظام الأساسي المعتمد</a></div>
+        <p class="samplenote" style="margin-top:8px">في النسخة النهائية يظهر هنا رقم عضويتك وحالتها وبطاقتها الرقمية بعد تسجيل الدخول.</p>
+      </section>
+      <section aria-labelledby="h-app" style="padding:0"><h2 class="h" id="h-app">طلبات العضوية</h2><div id="myapp"></div></section>
+    </div>
     <div class="acc">
       <section aria-labelledby="h-tix" style="padding:0"><h2 class="h" id="h-tix">تذاكري</h2><div id="mytix"></div></section>
       <section aria-labelledby="h-ord" style="padding:0"><h2 class="h" id="h-ord">طلباتي</h2><div id="myord"></div></section>
@@ -936,10 +1093,10 @@
       <div><h2 class="fh">العضوية</h2><ul>
         <li><a href="#/membership">أنواع العضوية والرسوم</a></li><li><a href="#/join">طلب الانضمام أو التجديد</a></li><li><a href="#/verify">التحقق من العضوية</a></li><li><a href="#/faq">الأسئلة الشائعة</a></li><li><a href="#/account">حسابي</a></li></ul></div>
       <div><h2 class="fh">للملاك</h2><ul>
-        <li><a href="#/events">الفعاليات والرحلات</a></li><li><a href="#/services">الخدمات</a></li><li><a href="#/knowledge">مركز المعرفة</a></li><li><a href="#/store">المتجر</a></li><li><a href="#/directory">دليل الشركات</a></li><li><a href="#/contact">تواصل معنا</a></li></ul></div>
+        <li><a href="#/events">الفعاليات والرحلات</a></li><li><a href="#/services">الخدمات</a></li><li><a href="#/knowledge">مركز المعرفة</a></li><li><a href="#/store">المتجر</a></li><li><a href="#/directory">دليل الشركات</a></li><li><a href="#/contact">تواصل معنا</a></li><li><a href="#/register-company">سجّل شركتك</a></li></ul></div>
     </div>
     <div class="legal">
-      <span>© <span id="yr"></span> جمعية الكرفانات — جمعية نفع عام مرخصة من هيئة تنمية المجتمع، دبي</span>
+      <span>© <span id="yr"></span> جمعية الكرفانات — جمعية نفع عام مرخصة من هيئة تنمية المجتمع، دبي · <a href="#/privacy" style="color:inherit">سياسة الخصوصية</a></span>
       <div class="themesw" role="group" aria-label="مظهر الموقع"><button type="button" data-theme-set="light" aria-pressed="true">النسخة الفاتحة</button><button type="button" data-theme-set="dark" aria-pressed="false">النسخة الداكنة</button></div>
     </div>
   </div>
